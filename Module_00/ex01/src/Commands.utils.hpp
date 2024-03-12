@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.class.cpp                                :+:      :+:    :+:   */
+/*   Commands.utils.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcuzin <jcuzin@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/06 12:24:34 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/03/12 05:11:25 by jcuzin           ###   ########.fr       */
+/*   Created: 2024/03/12 05:14:01 by jcuzin            #+#    #+#             */
+/*   Updated: 2024/03/12 05:29:07 by jcuzin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "MyAwesome.hpp"
+#ifndef COMMANDS_UTILS_HPP
+# define COMMANDS_UTILS_HPP
 
-PhoneBook::PhoneBook( void )
-{
-	std::cout << "PhoneBook Construct" << std::endl;
-	this->List_len = 0;
-	return ;
-}
+# include "MyAwesome.hpp"
 
-PhoneBook::~PhoneBook( void )
-{
-	std::cout << "PhoneBook Destruct" << std::endl;
-	return ;
-}
+void		SearchContact(PhoneBook Book);
+void		Exiting( void );
 
-void	Seach
+#endif
