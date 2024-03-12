@@ -6,11 +6,25 @@
 /*   By: jcuzin <jcuzin@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 09:31:53 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/03/08 01:51:59 by jcuzin           ###   ########.fr       */
+/*   Updated: 2024/03/12 05:06:33 by jcuzin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MyAwesome.hpp"
+
+void	Search( void )
+{
+	std::cout << "Searching..." << std::endl;
+	std::cout << "\rPlease Enter Command (ADD, SEARCH, EXIT)" << std::endl;
+	return ;
+}
+
+void	Exit( void )
+{
+	std::cout << "Exiting" << std::endl;
+	return ;
+}
+
 
 int	main(void)
 {
@@ -20,13 +34,15 @@ int	main(void)
 	std::cout << "\rPlease Enter Command (ADD, SEARCH, EXIT)" << std::endl;
 	while (std::cin >> Prompt)
 	{
-		if (!Prompt.compare("ADD"))
-			Book.AddContact();
+		if (!Prompt.compare("ADD")) {
+			Book.Contacts[(Book.List_len % 8)].Setup((Book.List_len % 8));
+			Book.List_len++;
+		}
 		else if (!Prompt.compare("SEARCH"))
-			Book.Search();
+			Search();
 		else if (!Prompt.compare("EXIT"))
 		{
-			Book.DestroyBook();
+			Exit();
 			break ;
 		}
 	}

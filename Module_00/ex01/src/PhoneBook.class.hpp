@@ -6,7 +6,7 @@
 /*   By: jcuzin <jcuzin@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:24:07 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/03/08 01:48:56 by jcuzin           ###   ########.fr       */
+/*   Updated: 2024/03/12 05:00:23 by jcuzin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,9 @@ class	PhoneBook {
 
 	public:
 		int		List_len;
-		void	*ContactId[8];
+		Contact	Contacts[8];
 		PhoneBook ( void );
 		~PhoneBook ( void );
-		void	Search( void );
-		void	AddContact( void );
-		void	DestroyBook( void );
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jcuzin <jcuzin@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:24:34 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/03/08 23:49:47 by jcuzin           ###   ########.fr       */
+/*   Updated: 2024/03/12 04:57:41 by jcuzin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ class	Contact {
 		Contact (void);
 		~Contact (void);
 		void	ExtendData( void );
+		void	Setup( int list_size );
 };
 
 #endif

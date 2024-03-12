@@ -6,7 +6,7 @@
 /*   By: jcuzin <jcuzin@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:24:34 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/03/08 23:52:04 by jcuzin           ###   ########.fr       */
+/*   Updated: 2024/03/12 04:59:30 by jcuzin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,29 @@ std::string	Readentry( std::string Prompt );
 Contact::Contact( void )
 {
 	std::cout << "Contact Construct" << std::endl;
-	std::cout << "Please enter: " << std::endl;
-	this->firstname.assign(Readentry("First Name"));
-	this->lastname.assign(Readentry("Last Name"));
-	this->nickname.assign(Readentry("NickName"));
-	this->phonenumber.assign(Readentry("Phone Number"));
-	this->darkestsecret.assign(Readentry("Darkest Secret"));
-	std::cout << std::endl << "Contact Added Successfully !" << std::endl;
 	return ;
 }
 
 Contact::~Contact( void )
 {
 	std::cout << "Contact Destruct" << std::endl;
+	return ;
+}
+
+void	Contact::Setup( int list_size )
+{
+	if (list_size <= 8) {
+		std::cout << "Adding Contact" << std::endl;
+		std::cout << "Please enter: " << std::endl;
+		this->firstname.assign(Readentry("First Name"));
+		this->lastname.assign(Readentry("Last Name"));
+		this->nickname.assign(Readentry("NickName"));
+		this->phonenumber.assign(Readentry("Phone Number"));
+		this->darkestsecret.assign(Readentry("Darkest Secret"));
+		std::cout << std::endl << "Contact Added Successfully !" << std::endl;
+	}
+	else
+		std::cout << std::endl << "Max Contacts List Len Reached" << std::endl;
 	return ;
 }
 

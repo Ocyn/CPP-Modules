@@ -1,6 +1,6 @@
 #________________________MACROS
 
-NAME				= Megaphone
+NAME				= MyPhoneBook
 
 #____________DEBUGGING
 RESET				= \033[0m
@@ -29,7 +29,9 @@ LIB_DIR				= lib/
 OBJ_DIR				= $(SRC_DIR)OBJ/
 
 #____________FILES
-ALL_SRC				= megaphone.cpp
+ALL_SRC				= MyAwesome.cpp \
+					PhoneBook.class.cpp \
+					Contact.class.cpp
 
 ALL_HEADERS			= $(ALL_SRC:.cpp=.hpp)
 
