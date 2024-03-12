@@ -6,7 +6,7 @@
 /*   By: jcuzin <jcuzin@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 09:31:53 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/03/12 06:56:32 by jcuzin           ###   ########.fr       */
+/*   Updated: 2024/03/12 06:58:34 by jcuzin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	SearchContact(PhoneBook *Book)
 	Showing_List(Book->Contacts, Book->List_len);
 	std::cout << "\rPlease Enter desired Contact Index" << std::endl;
 	std::cin >> Prompt;
-	index = stoi(Prompt);
+	index = atoi(Prompt);
 	while (index < 1 || index > 8)
 		std::cout << "\rInvalid input, please try again";
 	if (index >= 1 && index <= 8)
