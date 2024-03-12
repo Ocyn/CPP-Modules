@@ -6,7 +6,7 @@
 /*   By: jcuzin <jcuzin@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:24:34 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/03/12 04:57:41 by jcuzin           ###   ########.fr       */
+/*   Updated: 2024/03/12 06:48:57 by jcuzin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ class	Contact {
 		std::string	darkestsecret;
 		Contact (void);
 		~Contact (void);
-		void	ExtendData( void );
-		void	Setup( int list_size );
+		void		ExtendData( void );
+		void		Setup(int list_size);
 };
 
 #endif

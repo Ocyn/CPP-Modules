@@ -6,7 +6,7 @@
 /*   By: jcuzin <jcuzin@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:24:34 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/03/12 05:11:25 by jcuzin           ###   ########.fr       */
+/*   Updated: 2024/03/12 06:40:34 by jcuzin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,3 @@ PhoneBook::~PhoneBook( void )
 	std::cout << "PhoneBook Destruct" << std::endl;
 	return ;
 }
-
-void	Seach

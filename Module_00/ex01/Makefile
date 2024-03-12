@@ -30,7 +30,6 @@ OBJ_DIR				= $(SRC_DIR)OBJ/
 
 #____________FILES
 ALL_SRC				= MyAwesome.cpp \
-					Commands.utils.cpp \
 					PhoneBook.class.cpp \
 					Contact.class.cpp
 
