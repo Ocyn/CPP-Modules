@@ -6,7 +6,7 @@
 /*   By: jcuzin <jcuzin@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 09:31:53 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/03/12 06:58:34 by jcuzin           ###   ########.fr       */
+/*   Updated: 2024/03/12 07:00:29 by jcuzin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,13 @@ void	Showing_List(Contact *Contacts, int ListSize)
 
 void	SearchContact(PhoneBook *Book)
 {
-	std::string	Prompt;
+	// std::string	Prompt;
 	int			index = 0;
 
 	std::cout << "Showing all saved contacts" << std::endl;
 	Showing_List(Book->Contacts, Book->List_len);
 	std::cout << "\rPlease Enter desired Contact Index" << std::endl;
-	std::cin >> Prompt;
-	index = atoi(Prompt);
+	std::cin >> index;
 	while (index < 1 || index > 8)
 		std::cout << "\rInvalid input, please try again";
 	if (index >= 1 && index <= 8)
