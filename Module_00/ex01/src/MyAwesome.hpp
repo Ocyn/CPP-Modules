@@ -6,7 +6,7 @@
 /*   By: jcuzin <jcuzin@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:27:01 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/03/12 06:52:21 by jcuzin           ###   ########.fr       */
+/*   Updated: 2024/03/22 04:09:43 by jcuzin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define MYAWESOME_HPP
 
 # include <iostream>
+# include <iomanip>
 # include <sstream>
 # include <cstdlib>
 # include <cstring>
