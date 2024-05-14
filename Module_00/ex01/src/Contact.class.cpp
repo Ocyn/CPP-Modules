@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:24:34 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/05/14 19:06:38 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/05/14 21:16:04 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ Contact::~Contact( void )
 
 int	Contact::Setup( int list_size )
 {
-	if (list_size <= 8) {
+	if (list_size < 8) {
 		std::cout << "Adding Contact" << std::endl << "Please enter: " << std::endl;
 		if (std::cin.eof())
 			return (Exiting(), EXIT_SUCCESS);

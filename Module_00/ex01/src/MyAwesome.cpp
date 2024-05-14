@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 09:31:53 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/05/14 20:48:37 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/05/14 21:12:00 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ void	SearchContact(PhoneBook *Book)
 		Entry = Readentry("Please type contact index");
 		std::stringstream	ssint(Entry);
 		ssint >> index;
-		std::cout << "DEBUG: index=" << index; 
 		if (index - 1 >= 0 && index - 1 < Book->List_len)
 			Book->Contacts[index - 1].ExtendData();
 		else
