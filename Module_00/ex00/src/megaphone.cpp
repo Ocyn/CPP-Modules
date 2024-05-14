@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcuzin <jcuzin@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 09:31:53 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/03/06 11:13:40 by jcuzin           ###   ########.fr       */
+/*   Updated: 2024/05/10 16:10:03 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <cctype>
+#include <string>
 
 int	main(int argc, char **argv)
 {
@@ -18,13 +20,9 @@ int	main(int argc, char **argv)
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
 	for (int t = 1; argv[t]; t++)
 	{
+		std::string	megaphone = argv[t];
 		for (int i = 0; argv[t][i]; i++)
-		{
-			if (argv[t][i] >= 'a' && argv[t][i] <= 'z')
-				std::cout << (char)((argv[t][i]) - 32);
-			else
-				std::cout << argv[t][i];
-		}
+			std::cout << (char)toupper(megaphone[i]);
 	}
 	std::cout << std::endl;
 	return (0);

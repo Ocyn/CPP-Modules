@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.class.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcuzin <jcuzin@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:24:34 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/03/12 04:59:30 by jcuzin           ###   ########.fr       */
+/*   Updated: 2024/05/14 19:06:38 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,40 +26,46 @@ Contact::~Contact( void )
 	return ;
 }
 
-void	Contact::Setup( int list_size )
+int	Contact::Setup( int list_size )
 {
 	if (list_size <= 8) {
-		std::cout << "Adding Contact" << std::endl;
-		std::cout << "Please enter: " << std::endl;
-		this->firstname.assign(Readentry("First Name"));
-		this->lastname.assign(Readentry("Last Name"));
-		this->nickname.assign(Readentry("NickName"));
-		this->phonenumber.assign(Readentry("Phone Number"));
-		this->darkestsecret.assign(Readentry("Darkest Secret"));
+		std::cout << "Adding Contact" << std::endl << "Please enter: " << std::endl;
+		if (std::cin.eof())
+			return (Exiting(), EXIT_SUCCESS);
+		this->firstname = Readentry("First Name");
+		this->lastname = Readentry("Last Name");
+		this->nickname = Readentry("NickName");
+		this->phonenumber = Readentry("Phone Number");
+		this->darkestsecret = Readentry("Darkest Secret");
+		this->id = list_size + 1;
 		std::cout << std::endl << "Contact Added Successfully !" << std::endl;
+		return (EXIT_SUCCESS);
 	}
 	else
-		std::cout << std::endl << "Max Contacts List Len Reached" << std::endl;
-	return ;
+		std::cout << std::endl << "Max list size reached" << std::endl;
+	return (EXIT_FAILURE);
 }
 
 std::string	Readentry( std::string Prompt )
 {
 	std::string	Entry;
 
-	while (Entry.empty()) {
-		std::cout << "\r" << Prompt << ": ";
-		std::cin >> Entry;
-	}
+	std::cout << Prompt << ": ";
+	do
+	{
+		if (std::cin.eof())
+			return (Exiting(), Entry);
+		std::getline(std::cin, Entry);
+	} while (Entry.empty() == true);
 	return (Entry);
 }
 
 void	Contact::ExtendData( void )
 {
-	std::cout << "Extend Contact N" << this->id << std::endl;
-	std::cout << "First Name: "<< this->firstname << std::endl;
-	std::cout << "Last Name: "<< this->lastname << std::endl;
-	std::cout << "NickName: "<< this->nickname << std::endl;
-	std::cout << "PhoneNumber: "<< this->phonenumber << std::endl;
-	std::cout << "Darkest Secret: "<< this->darkestsecret << std::endl;
+	std::cout << "Extending Contact " << this->id << std::endl;
+	std::cout << "First Name: " << this->firstname << std::endl;
+	std::cout << "Last Name: " << this->lastname << std::endl;
+	std::cout << "NickName: " << this->nickname << std::endl;
+	std::cout << "PhoneNumber: " << this->phonenumber << std::endl;
+	std::cout << "Darkest Secret: " << this->darkestsecret << std::endl;
 }

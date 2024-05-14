@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MyAwesome.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcuzin <jcuzin@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:27:01 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/03/22 04:09:43 by jcuzin           ###   ########.fr       */
+/*   Updated: 2024/05/14 18:55:17 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,8 @@
 # include <cstring>
 # include "Contact.class.hpp"
 # include "PhoneBook.class.hpp"
+
+void			Exiting( void );
+std::string		Readentry( std::string Prompt );
 
 #endif
