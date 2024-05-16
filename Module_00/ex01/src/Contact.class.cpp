@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:24:34 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/05/16 15:10:47 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/05/16 20:07:40 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	Contact::Setup( int list_size )
 {
 	std::cout << "Adding Contact" << std::endl << "Please enter: " << std::endl;
 	if (std::cin.eof())
-		return (Exiting(), EXIT_SUCCESS);
+		Exiting();
 	this->firstname = Readentry("First Name");
 	this->lastname = Readentry("Last Name");
 	this->nickname = Readentry("NickName");
@@ -55,13 +55,13 @@ std::string	Readentry( std::string Prompt )
 {
 	std::string	Entry;
 
-	std::cout << Prompt << ": ";
 	do
 	{
 		if (std::cin.eof())
-			return (Exiting(), Entry);
+			break;
+		std::cout << Prompt << ": " << std::endl;
 		std::getline(std::cin, Entry);
-	} while (Entry.empty() == true || str_ascii(Entry));
+	} while (Entry.empty() == true);
 	return (Entry);
 }
 

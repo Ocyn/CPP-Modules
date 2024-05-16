@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 09:31:53 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/05/16 16:22:39 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/05/16 20:08:32 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 
 void	Exiting( void )
 {
-	std::cout << "Exiting" << std::endl;
+	std::cout << std::endl << "Exiting" << std::endl;
 	exit(0);
 }
 
 void	Column( std::string Title )
 {
-	std::string		NewTitle;
+	std::string		AltTitle;
 
 	std::cout << std::right;
 	std::cout << std::setw (10);
 	if (Title.length() > 10)
 	{
-		NewTitle = Title.substr(0, 9).append(".");
-		std::cout << NewTitle;
+		AltTitle = Title.substr(0, 9).append(".");
+		std::cout << AltTitle;
 	}
 	else
 		std::cout << Title;
@@ -69,13 +69,16 @@ int	Showing_List(Contact *Contacts, int ListSize)
 
 void	SearchContact(PhoneBook *Book)
 {
-	std::string	Entry;
 	int			index;
 
 	std::cout << "Showing all saved contacts" << std::endl;
 	if (Showing_List(Book->Contacts, Book->List_len) == EXIT_SUCCESS)
 	{
-		Entry = Readentry("Please type contact index");
+		if (std::cin.eof())
+			Exiting();
+		std::string	Entry = Readentry("Please type contact index");
+		if (Entry.empty())
+			Exiting();
 		std::stringstream	ssint(Entry);
 		ssint >> index;
 		if (index - 1 >= 0 && index - 1 < Book->List_len)
@@ -94,10 +97,10 @@ int	main(void)
 	int			index = 0;
 	do
 	{
+		if (std::cin.eof())
+			Exiting();
 		std::cout << "Please Enter Command (ADD; SEARCH; EXIT)" << std::endl;
 		std::getline(std::cin, Prompt);
-		if (std::cin.eof())
-			return (Exiting(), 0);
 		if (!Prompt.compare("ADD"))
 		{
 			if (!Book.Contacts[index].Setup(index))

@@ -50,7 +50,7 @@ DIRS				= $(dir $(OBJ))
 
 #____________UTILITIES
 CC					= c++
-CFLAGS				= -Wextra -Wall -Werror -MMD -std=c++98 -g
+CFLAGS				= -Wextra -Wall -Werror -MMD -std=c++98 -g3
 
 
 
