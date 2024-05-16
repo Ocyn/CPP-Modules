@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:24:34 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/05/14 21:16:04 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/05/16 15:10:47 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,22 +28,27 @@ Contact::~Contact( void )
 
 int	Contact::Setup( int list_size )
 {
-	if (list_size < 8) {
-		std::cout << "Adding Contact" << std::endl << "Please enter: " << std::endl;
-		if (std::cin.eof())
-			return (Exiting(), EXIT_SUCCESS);
-		this->firstname = Readentry("First Name");
-		this->lastname = Readentry("Last Name");
-		this->nickname = Readentry("NickName");
-		this->phonenumber = Readentry("Phone Number");
-		this->darkestsecret = Readentry("Darkest Secret");
-		this->id = list_size + 1;
-		std::cout << std::endl << "Contact Added Successfully !" << std::endl;
-		return (EXIT_SUCCESS);
+	std::cout << "Adding Contact" << std::endl << "Please enter: " << std::endl;
+	if (std::cin.eof())
+		return (Exiting(), EXIT_SUCCESS);
+	this->firstname = Readentry("First Name");
+	this->lastname = Readentry("Last Name");
+	this->nickname = Readentry("NickName");
+	this->phonenumber = Readentry("Phone Number");
+	this->darkestsecret = Readentry("Darkest Secret");
+	this->id = list_size + 1;
+	std::cout << std::endl << "Contact Added Successfully !" << std::endl;
+	return (EXIT_SUCCESS);
+}
+
+int	str_ascii( std::string in )
+{
+	for (size_t i = 0; i < in.length(); i++)
+	{
+		if (!isascii(in[i]))
+			return (1);
 	}
-	else
-		std::cout << std::endl << "Max list size reached" << std::endl;
-	return (EXIT_FAILURE);
+	return (0);
 }
 
 std::string	Readentry( std::string Prompt )
@@ -56,7 +61,7 @@ std::string	Readentry( std::string Prompt )
 		if (std::cin.eof())
 			return (Exiting(), Entry);
 		std::getline(std::cin, Entry);
-	} while (Entry.empty() == true);
+	} while (Entry.empty() == true || str_ascii(Entry));
 	return (Entry);
 }
 

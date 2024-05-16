@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 09:31:53 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/05/14 21:12:00 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/05/16 16:22:39 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ int	main(void)
 {
 	std::string	Prompt;
 	PhoneBook	Book;
+	int			index = 0;
 	do
 	{
 		std::cout << "Please Enter Command (ADD; SEARCH; EXIT)" << std::endl;
@@ -98,8 +99,16 @@ int	main(void)
 		if (std::cin.eof())
 			return (Exiting(), 0);
 		if (!Prompt.compare("ADD"))
-			if (!Book.Contacts[Book.List_len].Setup(Book.List_len))
-				Book.List_len++;
+		{
+			if (!Book.Contacts[index].Setup(index))
+			{
+				if (Book.List_len < 8)
+					Book.List_len++;
+				index++;
+				if (index >= 8)
+					index = 0;
+			}
+		}
 		if (!Prompt.compare("SEARCH"))
 			SearchContact(&Book);
 	} while (Prompt.compare("EXIT"));
