@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:24:34 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/05/16 20:07:40 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/05/16 20:35:40 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	str_ascii( std::string in )
 {
 	for (size_t i = 0; i < in.length(); i++)
 	{
-		if (!isascii(in[i]))
+		if (!isascii(in[i]) || in[i] == '\t')
 			return (1);
 	}
 	return (0);
@@ -61,7 +61,7 @@ std::string	Readentry( std::string Prompt )
 			break;
 		std::cout << Prompt << ": " << std::endl;
 		std::getline(std::cin, Entry);
-	} while (Entry.empty() == true);
+	} while (Entry.empty() == true || str_ascii(Entry));
 	return (Entry);
 }
 
