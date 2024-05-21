@@ -31,7 +31,8 @@ OBJ_DIR				= $(SRC_DIR)OBJ/
 #____________FILES
 ALL_SRC				= MyAwesome.cpp \
 					PhoneBook.class.cpp \
-					Contact.class.cpp
+					Contact.class.cpp \
+					Utils.cpp
 
 ALL_HEADERS			= $(ALL_SRC:.cpp=.hpp)
 

@@ -6,13 +6,11 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:24:34 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/05/16 20:35:40 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/05/21 15:11:35 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MyAwesome.hpp"
-
-std::string	Readentry( std::string Prompt );
 
 Contact::Contact( void )
 {
@@ -26,7 +24,7 @@ Contact::~Contact( void )
 	return ;
 }
 
-int	Contact::Setup( int list_size )
+int	Contact::Setup_all( int list_size )
 {
 	std::cout << "Adding Contact" << std::endl << "Please enter: " << std::endl;
 	if (std::cin.eof())
@@ -41,30 +39,6 @@ int	Contact::Setup( int list_size )
 	return (EXIT_SUCCESS);
 }
 
-int	str_ascii( std::string in )
-{
-	for (size_t i = 0; i < in.length(); i++)
-	{
-		if (!isascii(in[i]) || in[i] == '\t')
-			return (1);
-	}
-	return (0);
-}
-
-std::string	Readentry( std::string Prompt )
-{
-	std::string	Entry;
-
-	do
-	{
-		if (std::cin.eof())
-			break;
-		std::cout << Prompt << ": " << std::endl;
-		std::getline(std::cin, Entry);
-	} while (Entry.empty() == true || str_ascii(Entry));
-	return (Entry);
-}
-
 void	Contact::ExtendData( void )
 {
 	std::cout << "Extending Contact " << this->id << std::endl;
@@ -73,4 +47,25 @@ void	Contact::ExtendData( void )
 	std::cout << "NickName: " << this->nickname << std::endl;
 	std::cout << "PhoneNumber: " << this->phonenumber << std::endl;
 	std::cout << "Darkest Secret: " << this->darkestsecret << std::endl;
+}
+
+std::string	Contact::Get_Firstname( void )
+{
+	return (this->firstname);
+}
+std::string	Contact::Get_Lastname( void )
+{
+	return (this->lastname);
+}
+std::string	Contact::Get_Nickname( void )
+{
+	return (this->nickname);
+}
+std::string	Contact::Get_Phonenumber( void )
+{
+	return (this->phonenumber);
+}
+std::string	Contact::Get_Darkestsecret( void )
+{
+	return (this->darkestsecret);
 }

@@ -31,8 +31,11 @@
 *.out
 *.app
 
-/*
-!/*.hpp
-!/*.cpp
+# White List
+!*.hpp
+!*.hpp
+!*.c
+!*.cpp
 !Makefile
 !.gitignore
+
