@@ -29,7 +29,10 @@ LIB_DIR				= lib/
 OBJ_DIR				= $(SRC_DIR)OBJ/
 
 #____________FILES
-ALL_SRC				= main.cpp
+ALL_SRC				= main.cpp \
+					HumanA.cpp \
+					HumanB.cpp \
+					Weapon.cpp
 
 ALL_HEADERS			= $(ALL_SRC:.cpp=.hpp)
 

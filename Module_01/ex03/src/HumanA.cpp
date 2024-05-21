@@ -6,16 +6,23 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 18:48:32 by ocyn              #+#    #+#             */
-/*   Updated: 2024/05/21 19:19:41 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/05/21 22:37:46 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
 
-HumanA::HumanA(std::string name, const Weapon &weapon)
+HumanA::HumanA( void )
 {
 	std::cout << "HumanA Construct" << std::endl;
-	this->setName(name);
+}
+
+HumanA::HumanA(std::string name, Weapon &weapon): _name(name), _weapon(weapon)
+{
+	std::cout << "HumanA Construct:";
+	std::cout << " Name: " << this->_name;
+	std::cout << " Weapon: " << this->_weapon.getType();
+	std::cout << std::endl;
 }
 
 HumanA::~HumanA()
@@ -23,21 +30,21 @@ HumanA::~HumanA()
 	std::cout << "HumanA Destruct" << std::endl;
 }
 
-void	HumanA::attack( void )
+void	HumanA::attack( void ) const
 {
-	std::cout << this->name;
+	std::cout << this->_name;
 	std::cout << " attacks with their ";
-	std::cout << this->weapon.getType();
+	std::cout << this->_weapon.getType();
 	std::cout << std::endl;
 	return ;
 }
 
 void	HumanA::setName(std::string name)
 {
-	this->name = name;
+	this->_name = name;
 }
 
-void	HumanA::setWeapon(const Weapon &weapon)
+void	HumanA::setWeapon(Weapon &weapon)
 {
-	this->weapon = weapon;
+	this->_weapon = weapon;
 }
