@@ -1,6 +1,6 @@
 #________________________MACROS
 
-NAME				= MoarBrain
+NAME				= HiBrain
 
 #____________DEBUGGING
 RESET				= \033[0m
@@ -29,9 +29,7 @@ LIB_DIR				= lib/
 OBJ_DIR				= $(SRC_DIR)OBJ/
 
 #____________FILES
-ALL_SRC				= Zombie.cpp \
-					main.cpp \
-					zombieHorde.cpp
+ALL_SRC				= main.cpp
 
 ALL_HEADERS			= $(ALL_SRC:.cpp=.hpp)
 

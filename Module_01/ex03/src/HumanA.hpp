@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/21 17:58:46 by ocyn              #+#    #+#             */
-/*   Updated: 2024/05/21 18:31:10 by ocyn             ###   ########.fr       */
+/*   Created: 2024/05/21 18:48:30 by ocyn              #+#    #+#             */
+/*   Updated: 2024/05/21 19:19:24 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Weapon.hpp"
 
-Zombie*	zombieHorde( int N, std::string name )
+class	HumanA
 {
-	Zombie	*Horde = new Zombie[N];
-	
-	for (int i = 0; i < N; i++)
-		Horde[i].Set_name(name);
-	return (Horde);
-}
+	private:
+		std::string	name;
+		Weapon		weapon;
+	public:
+				HumanA(std::string name, const Weapon &WeaponType);
+				~HumanA();
+		void	attack();
+		void	setName(std::string name);
+		void	setWeapon(const Weapon &weapon);
+};

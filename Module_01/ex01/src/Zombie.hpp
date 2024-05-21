@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:24:34 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/05/21 17:39:12 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/05/21 18:00:56 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ class	Zombie {
 		std::string	Name;
 };
 
-void	randomChump( std::string name );
-Zombie*	newZombie( std::string name );
+Zombie*	zombieHorde( int N, std::string name );
 
 #endif
