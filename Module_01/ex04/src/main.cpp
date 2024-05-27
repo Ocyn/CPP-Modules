@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/21 18:48:26 by ocyn              #+#    #+#             */
-/*   Updated: 2024/05/23 17:01:02 by ocyn             ###   ########.fr       */
+/*   Created: 2024/05/23 17:17:40 by ocyn              #+#    #+#             */
+/*   Updated: 2024/05/27 22:57:20 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANB_HPP
-# define HUMANB_HPP
+#include "main.hpp"
 
-# include "Weapon.hpp"
-
-class	HumanB
+int	main(int argc, char **argv)
 {
-	private:
-		std::string	_name;
-		Weapon		*_weapon;
-	public:
-		HumanB(std::string name);
-		~HumanB();
-		void	attack();
-		void	setName(std::string name);
-		void	setWeapon(Weapon &weapon);
-};
-
-#endif
+	if (argc != 4)
+		return (1);
+	std::string		FileName = argv[1];
+	std::string		Search = argv[2];
+	std::string		Replace = argv[3];
+	std::ifstream	File;
+	if (OpenFile(File, FileName))
+		return (1);
+	if (ReplaceFile(File, FileName, Search, Replace))
+		return (1);
+	File.close();
+	return (0);
+}

@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 18:48:30 by ocyn              #+#    #+#             */
-/*   Updated: 2024/05/21 22:38:37 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/05/23 16:01:18 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ class	HumanA
 		std::string	_name;
 		Weapon		&_weapon;
 	public:
-		HumanA();
 		HumanA(std::string name, Weapon &weapon);
 		~HumanA();
 		void	attack() const;

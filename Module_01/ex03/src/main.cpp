@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 18:35:33 by ocyn              #+#    #+#             */
-/*   Updated: 2024/05/21 20:58:21 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/05/23 17:09:45 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,32 @@
 #include "HumanA.hpp"
 #include "HumanB.hpp"
 
-void	Bob()
+void	Michel()
 {
 	Weapon club = Weapon("crude spiked club");
-	HumanA bob("Bob", club);
-	bob.attack();
+	HumanA Michel("Michel", club);
+	Michel.attack();
 	club.setType("some other type of club");
-	bob.attack();
+	Michel.attack();
+	club.setType("l'enorme zizi de sheshounet");
+	Michel.attack();
 }
 
-void	Jin()
+void	Didier()
 {
 	Weapon club = Weapon("crude spiked club");
-	HumanB jim("Jim");
-	jim.setWeapon(club);
-	jim.attack();
+	HumanB Didier("Didier");
+	Didier.setWeapon(club);
+	Didier.attack();
 	club.setType("some other type of club");
-	jim.attack();
+	Didier.attack();
+	club.setType("l'enorme zizi de sheshounet");
+	Didier.attack();
 }
 
 int main()
 {
-	Bob();
-	Jin();
+	Michel();
+	Didier();
 	return 0;
 }

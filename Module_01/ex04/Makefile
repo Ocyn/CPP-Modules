@@ -1,6 +1,6 @@
 #________________________MACROS
 
-NAME				= Violence
+NAME				= NoSed
 
 #____________DEBUGGING
 RESET				= \033[0m
@@ -30,9 +30,8 @@ OBJ_DIR				= $(SRC_DIR)OBJ/
 
 #____________FILES
 ALL_SRC				= main.cpp \
-					HumanA.cpp \
-					HumanB.cpp \
-					Weapon.cpp
+					fileManip.cpp
+
 
 ALL_HEADERS			= $(ALL_SRC:.cpp=.hpp)
 

@@ -6,22 +6,15 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 18:48:32 by ocyn              #+#    #+#             */
-/*   Updated: 2024/05/21 22:37:46 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/05/23 17:07:37 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
 
-HumanA::HumanA( void )
-{
-	std::cout << "HumanA Construct" << std::endl;
-}
-
 HumanA::HumanA(std::string name, Weapon &weapon): _name(name), _weapon(weapon)
 {
-	std::cout << "HumanA Construct:";
-	std::cout << " Name: " << this->_name;
-	std::cout << " Weapon: " << this->_weapon.getType();
+	std::cout << "HumanA Construct";
 	std::cout << std::endl;
 }
 
