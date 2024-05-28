@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 22:59:34 by ocyn              #+#    #+#             */
-/*   Updated: 2024/05/28 19:49:43 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/05/28 20:00:32 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,28 @@ Harl::~Harl()
 void	Harl::complain( std::string level )
 {
 	std::string		Levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	void			(Harl::*Select[])( void ) =
+	int		case_i = 0;
+
+	while (Levels[case_i].compare(level))
+		case_i++;
+	switch (case_i)
 	{
-		&Harl::debug,
-		&Harl::info,
-		&Harl::warning,
-		&Harl::error
-	};
-	for (size_t i = 0; i < 4; i++)
-	{
-		if (!Levels[i].compare(level))
-			(this->*Select[i])();
+		case 0:
+			debug();
+			break;
+		case 1:
+			info();
+			break;
+		case 2:
+			warning();
+			break;
+		case 3:
+			error();
+			break;
+		
+	
+	default:
+		break;
 	}
 }
 
@@ -43,18 +54,21 @@ void	Harl::debug( void )
 {
 	std::cout << "[ DEBUG ]" << std::endl;
 	std::cout << "I love having extra bacon for my 7XL-double-cheese-triple-pickle-specialketchup burger.\nI really do!" << std::endl;
+	info();
 	return ;
 }
 void	Harl::info( void )
 {
 	std::cout << "[ INFO ]" << std::endl;
 	std::cout << "I cannot believe adding extra bacon costs more money. You didn’t put enough bacon in my burger! If you did, I wouldn’t be asking for more!" << std::endl;
+	warning();
 	return ;
 }
 void	Harl::warning( void )
 {
 	std::cout << "[ WARNING ]" << std::endl;
 	std::cout << "I think I deserve to have some extra bacon for free. I’ve been coming for years whereas you started working here since last month." << std::endl;
+	error();
 	return ;
 }
 void	Harl::error( void )

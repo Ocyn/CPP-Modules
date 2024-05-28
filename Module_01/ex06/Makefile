@@ -1,6 +1,6 @@
 #________________________MACROS
 
-NAME				= Harl2
+NAME				= HarlFilter
 
 #____________DEBUGGING
 RESET				= \033[0m
