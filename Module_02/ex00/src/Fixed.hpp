@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 18:48:30 by ocyn              #+#    #+#             */
-/*   Updated: 2024/05/28 20:54:33 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/05/30 01:53:39 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,13 @@
 class	Fixed
 {
 	private:
-		int		temp;
+		int					_Bits;
+		const static	int	_RawBits;
 	public:
 		Fixed();
 		~Fixed();
+		int		getRawBits( void )	const;
+		void	setRawBits( int const raw );
 };
 
 #endif
