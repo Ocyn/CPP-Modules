@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 18:48:32 by ocyn              #+#    #+#             */
-/*   Updated: 2024/06/04 19:18:14 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/06/10 14:56:32 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,39 +20,28 @@ Fixed::Fixed(): _bitValue(0)
 
 Fixed::~Fixed()
 {
-	std::cout << "Fixed Destruct" << std::endl;
+	std::cout << "Fixed Default Destruct" << std::endl;
 }
 
 Fixed::Fixed(const float Float): _bitValue(Float)
 {
-	std::cout << "Fixed const float Construct";
+	std::cout << "Fixed float Construct";
 	std::cout << std::endl;
 }
 
 Fixed::Fixed(const int Integer): _bitValue(Integer)
 {
-	std::cout << "Fixed const integer Construct";
+	std::cout << "Fixed integer Construct";
 	std::cout << std::endl;
 }
 
 Fixed& Fixed::operator=(const Fixed &Sample)
 {
-	std::cout << "Fixed = Operator Overload";
+	std::cout << "Fixed Operator= Overload";
 	std::cout << std::endl;
 	if (this != &Sample)
-		*this = Sample;
-}
-
-Fixed::Fixed(const int Integer): _bitValue(Integer)
-{
-	std::cout << "Fixed Const Integer Construct";
-	std::cout << std::endl;
-}
-
-Fixed::Fixed(const float Float): _bitValue(Float)
-{
-	std::cout << "Fixed Const Integer Construct";
-	std::cout << std::endl;
+		this->_bitValue = Sample._bitValue;
+	return (*this);
 }
 
 int		Fixed::getRawBits( void ) const
@@ -67,13 +56,20 @@ void	Fixed::setRawBits( int const raw )
 	return ;
 }
 
-std::ostream	&operator<<(std::ostream &o, const float Float)
+std::ostream	&operator<<(std::ostream &os, const Fixed &Sample)
 {
 	std::cout << "Ostream << Operator Overload";
 	std::cout << std::endl;
-	if (this != &instance)
-	{
-		this->_bitValue = instance._bitValue;
-	}
-	return (*this);
+	(void)Sample;
+	return (os);
+}
+
+float	Fixed::toFloat( void ) const
+{
+	return (this->getRawBits());
+}
+
+int		Fixed::toInt( void ) const
+{
+	return (this->getRawBits());
 }
