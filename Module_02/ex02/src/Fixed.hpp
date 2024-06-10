@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 18:48:30 by ocyn              #+#    #+#             */
-/*   Updated: 2024/06/10 19:35:31 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/06/10 21:15:17 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,27 +32,27 @@ class	Fixed
 		Fixed(const int Integer);
 		Fixed(const float Float);
 		Fixed& operator=(const Fixed &Sample);
-		Fixed& operator++(int n);
-		Fixed& operator--(int n);
+		Fixed operator++(int);
+		Fixed operator--(int);
 		Fixed& operator++();
 		Fixed& operator--();
 
-		Fixed& operator+(const Fixed &Sample);
-		Fixed& operator-(const Fixed &Sample);
-		Fixed& operator*(const Fixed &Sample);
-		Fixed& operator/(const Fixed &Sample);
+		Fixed operator+(const Fixed &Sample) const;
+		Fixed operator-(const Fixed &Sample) const;
+		Fixed operator*(const Fixed &Sample) const;
+		Fixed operator/(const Fixed &Sample) const;
 
-		bool operator<(const Fixed &Sample);
-		bool operator>(const Fixed &Sample);
-		bool operator>=(const Fixed &Sample);
-		bool operator<=(const Fixed &Sample);
-		bool operator==(const Fixed &Sample);
-		bool operator!=(const Fixed &Sample);
+		bool operator<(const Fixed &Sample) const;
+		bool operator>(const Fixed &Sample) const;
+		bool operator>=(const Fixed &Sample) const;
+		bool operator<=(const Fixed &Sample) const;
+		bool operator==(const Fixed &Sample) const;
+		bool operator!=(const Fixed &Sample) const;
 
-		const static int	min(int &First, int &Second);
-		const static int	min(const int &First, const int &Second);
-		const static int	max(int &First, int &Second);
-		const static int	max(const int &First, const int &Second);
+		static Fixed&	min(Fixed &First, Fixed &Second);
+		const static Fixed&	min(const Fixed &First, const Fixed &Second);
+		static Fixed&	max(Fixed &First, Fixed &Second);
+		const static Fixed&	max(const Fixed &First, const Fixed &Second);
 
 		int		getRawBits( void )	const;
 		void	setRawBits( int const raw );

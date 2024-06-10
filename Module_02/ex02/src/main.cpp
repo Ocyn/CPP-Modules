@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 18:35:33 by ocyn              #+#    #+#             */
-/*   Updated: 2024/06/10 19:14:52 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/06/10 21:05:36 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ int main( void )
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;
 	std::cout << Fixed::max( a, b ) << std::endl;
+	// std::cout << b.getRawBits() << std::endl;
 	return 0;
 }

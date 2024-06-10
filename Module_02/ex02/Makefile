@@ -49,7 +49,7 @@ DIRS				= $(sort $(dir $(OBJ)))
 
 #____________UTILITIES
 CC					= c++
-CFLAGS				= -Wextra -Wall -Werror -MMD -std=c++98 -g3
+CFLAGS				= -Wextra -Wall -Werror -MMD -std=c++98 -g3 -fsanitize=address
 
 
 
