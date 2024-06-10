@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 18:48:32 by ocyn              #+#    #+#             */
-/*   Updated: 2024/06/10 21:26:33 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/06/10 21:29:41 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ Fixed::Fixed(const float Float)
 {
 	// std::cout << "Fixed float Construct";
 	// std::cout << std::endl;
-	this->_bitValue = (static_cast<int>(Float * (1 << this->_bitNumber)));
+	this->_bitValue = roundf((Float * (1 << this->_bitNumber)));
 }
 
 Fixed::Fixed(const int Integer)
@@ -162,17 +162,16 @@ void	Fixed::setRawBits( int const raw )
 
 float	Fixed::toFloat( void ) const
 {
-	return (static_cast<float>(this->_bitValue) / static_cast<float>(1 << this->_bitNumber));
+	return (static_cast<float>(this->getRawBits()) / static_cast<float>(1 << this->_bitNumber));
 }
 
 int		Fixed::toInt( void ) const
 {
-	return (static_cast<int>(this->_bitValue ) >> this->_bitNumber);
+	return (static_cast<int>(this->getRawBits() )>> this->_bitNumber);
 }
 
 std::ostream	&operator<<(std::ostream &os, const Fixed &Sample)
 {
 	os << Sample.toFloat();
-	(void)Sample;
 	return (os);
 }
