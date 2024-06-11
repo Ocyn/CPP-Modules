@@ -29,9 +29,8 @@ LIB_DIR				= lib/
 OBJ_DIR				= $(SRC_DIR)OBJ/
 
 #____________FILES
-ALL_SRC				= Zombie.cpp \
-					main.cpp \
-					zombieHorde.cpp
+ALL_SRC				= ClapTrap.cpp \
+					main.cpp
 
 ALL_HEADERS			= $(ALL_SRC:.cpp=.hpp)
 

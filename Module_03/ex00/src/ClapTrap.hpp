@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:24:34 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/06/11 17:35:17 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/06/11 18:27:50 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ class	ClapTrap {
 		ClapTrap		(const ClapTrap &Sample);
 		~ClapTrap		(void);
 
-		ClapTrap	&operator=(const ClapTrap &Sample);
-		void		attack(const std::string& target);
-		void		takeDamage(unsigned int amount);
-		void		beRepaired(unsigned int amount);
+		ClapTrap&		operator=(const ClapTrap &Sample);
+		void			attack(const string& target);
+		void			takeDamage(unsigned int amount);
+		void			beRepaired(unsigned int amount);
 		const string	getName();
 	private:
-		std::string	_Name;
+		string		_Name;
 		int			_hitPoints;
 		int			_energyPoints;
 		int			_attackDammages;

@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:24:34 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/06/11 17:35:46 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/06/11 18:25:40 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 ClapTrap::ClapTrap( const string Name ): _Name(Name)
 {
 	std::cout << "ClapTrap Construct" << std::endl;
+	this->_hitPoints = 10;
+	this->_energyPoints = 10;
+	this->_attackDammages = 0;
 	return ;
 }
 
@@ -40,7 +43,7 @@ ClapTrap&	ClapTrap::operator=(const ClapTrap &Sample)
 	return (*this);
 }
 
-void	ClapTrap::attack(const std::string& target)
+void	ClapTrap::attack(const string& target)
 {
 	std::cout << "ClapTrap " << this->_Name;
 	std::cout << " attacks " << target;
