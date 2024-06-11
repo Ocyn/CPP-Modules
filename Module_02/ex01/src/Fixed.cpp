@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 18:48:32 by ocyn              #+#    #+#             */
-/*   Updated: 2024/06/10 14:56:32 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/06/10 20:54:15 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,25 @@ Fixed::~Fixed()
 	std::cout << "Fixed Default Destruct" << std::endl;
 }
 
-Fixed::Fixed(const float Float): _bitValue(Float)
+Fixed::Fixed(Fixed const &Sample)
+{
+	std::cout << "Fixed Copy Default Construct";
+	std::cout << std::endl;
+	*this = Sample;
+}
+
+Fixed::Fixed(const float Float)
 {
 	std::cout << "Fixed float Construct";
 	std::cout << std::endl;
+	this->_bitValue = roundf(Float * (1 << this->_bitNumber));
 }
 
-Fixed::Fixed(const int Integer): _bitValue(Integer)
+Fixed::Fixed(const int Integer)
 {
 	std::cout << "Fixed integer Construct";
 	std::cout << std::endl;
+	this->_bitValue = Integer * (1 << this->_bitNumber);
 }
 
 Fixed& Fixed::operator=(const Fixed &Sample)
@@ -58,18 +67,18 @@ void	Fixed::setRawBits( int const raw )
 
 std::ostream	&operator<<(std::ostream &os, const Fixed &Sample)
 {
-	std::cout << "Ostream << Operator Overload";
-	std::cout << std::endl;
+	os << Sample.toFloat();
 	(void)Sample;
 	return (os);
 }
 
 float	Fixed::toFloat( void ) const
 {
-	return (this->getRawBits());
+	return ((float)this->getRawBits() / (1 << this->_bitNumber));
 }
 
 int		Fixed::toInt( void ) const
 {
-	return (this->getRawBits());
+	return ((int)this->getRawBits() >> this->_bitNumber);
 }
+

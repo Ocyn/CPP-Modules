@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 18:48:32 by ocyn              #+#    #+#             */
-/*   Updated: 2024/06/10 21:29:41 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/06/11 15:31:32 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,30 +56,25 @@ bool Fixed::operator<(const Fixed &Sample) const
 	return (this->_bitValue < Sample.getRawBits());
 }
 
-
 bool Fixed::operator>(const Fixed &Sample) const
 {
 	return (this->_bitValue > Sample.getRawBits());
 }
-
 
 bool Fixed::operator>=(const Fixed &Sample) const
 {
 	return (this->_bitValue >= Sample.getRawBits());
 }
 
-
 bool Fixed::operator<=(const Fixed &Sample) const
 {
 	return (this->_bitValue <= Sample.getRawBits());
 }
 
-
 bool Fixed::operator==(const Fixed &Sample) const
 {
 	return (this->_bitValue == Sample.getRawBits());
 }
-
 
 bool Fixed::operator!=(const Fixed &Sample) const
 {
