@@ -6,28 +6,24 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 09:31:53 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/05/21 18:33:18 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/06/11 17:36:58 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "ClapTrap.hpp"
 
-void	TestHorde( int N, Zombie *Horde )
+void	Test( ClapTrap &Buddy )
 {
-	for (int i = 0; i < N; i++)
-		Horde[i].announce();
+	std::cout << Buddy.getName() << " ! Come on, do something !" << std::endl;
+	
 }
 
-void	KillHorde(Zombie *Horde)
+int	main( void )
 {
-	delete [] Horde;
-}
-
-int	main(void)
-{
-	int	size = 3;
-	Zombie	*Michels = zombieHorde(size, "Michel");
-	TestHorde(size, Michels);
-	KillHorde(Michels);
+	ClapTrap	Michel("Michel");
+	ClapTrap	Didier("Didier");
+	ClapTrap	MichMich(Michel);
+	
+	Test();
 	return (0);
 }

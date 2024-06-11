@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:24:34 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/06/11 17:30:55 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/06/11 17:35:46 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,3 +63,9 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	std::cout << ", restauring " << amount;
 	std::cout << " points of health !" << std::endl;
 }
+
+const string	ClapTrap::getName()
+{
+	return (this->_Name);
+}
+
