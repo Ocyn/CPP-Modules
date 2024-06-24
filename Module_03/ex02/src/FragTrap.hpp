@@ -6,12 +6,12 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:24:34 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/06/24 15:42:22 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/06/24 16:36:28 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef	FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
 # include <iostream>
 # include <iomanip>

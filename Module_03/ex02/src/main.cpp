@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 09:31:53 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/06/24 15:44:22 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/06/24 16:37:24 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,9 @@ int	main( void )
 	for (size_t i = 0; i < 3; i++)
 		Test_2(Bruno);
 	Bruno.guardGate();
+	FragTrap	Olivier("Olivier");
+
+	for (size_t i = 0; i < 3; i++)
+		Test_3(Olivier);
 	return (0);
 }
