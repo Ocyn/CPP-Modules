@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:24:34 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/06/24 14:46:49 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/06/24 14:23:36 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef std::string string;
 class	ClapTrap {
 
 	public:
-		ClapTrap		( void );
+		ClapTrap		(void);
 		ClapTrap		(const string Name);
 		ClapTrap		(const ClapTrap &Sample);
 		~ClapTrap		(void);
@@ -35,7 +35,8 @@ class	ClapTrap {
 		void			beRepaired(unsigned int amount);
 		const string	getName();
 		void			energyCost(unsigned int amount);
-	private:
+
+	protected:
 		string		_Name;
 		int			_hitPoints;
 		int			_energyPoints;

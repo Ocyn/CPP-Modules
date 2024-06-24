@@ -6,13 +6,13 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:24:34 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/06/24 14:46:37 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/06/24 14:24:11 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap( void )
+ClapTrap::ClapTrap()
 {
 	std::cout << "ClapTrap Default Construct" << std::endl;
 	return ;
@@ -21,7 +21,7 @@ ClapTrap::ClapTrap( void )
 ClapTrap::ClapTrap( const string Name ): _Name(Name)
 {
 	std::cout << "ClapTrap Construct" << std::endl;
-	this->_hitPoints = 10;
+	this->_hitPoints = 100;
 	this->_energyPoints = 10;
 	this->_attackDammages = 0;
 	return ;

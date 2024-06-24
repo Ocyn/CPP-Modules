@@ -1,45 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:24:34 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/06/24 14:46:49 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/06/24 15:42:41 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	CLAPTRAP_HPP
-# define CLAPTRAP_HPP
+#ifndef	SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
 # include <iostream>
 # include <iomanip>
 # include <sstream>
 # include <cstdlib>
 # include <cstring>
+# include "ClapTrap.hpp"
 
-typedef std::string string;
-
-class	ClapTrap {
+class	ScavTrap: public ClapTrap {
 
 	public:
-		ClapTrap		( void );
-		ClapTrap		(const string Name);
-		ClapTrap		(const ClapTrap &Sample);
-		~ClapTrap		(void);
+		ScavTrap			(void);
+		ScavTrap			(const string Name);
+		ScavTrap			(const ScavTrap &Sample);
+		virtual ~ScavTrap	(void);
 
-		ClapTrap&		operator=(const ClapTrap &Sample);
-		void			attack(const string& target);
-		void			takeDamage(unsigned int amount);
-		void			beRepaired(unsigned int amount);
-		const string	getName();
-		void			energyCost(unsigned int amount);
-	private:
-		string		_Name;
-		int			_hitPoints;
-		int			_energyPoints;
-		int			_attackDammages;
+		ScavTrap&		operator=(const ScavTrap &Sample);
+		void			guardGate();
 };
 
 #endif
