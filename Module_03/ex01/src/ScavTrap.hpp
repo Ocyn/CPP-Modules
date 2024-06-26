@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:24:34 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/06/24 15:42:48 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/06/26 17:50:00 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ class	ScavTrap: public ClapTrap {
 		virtual ~ScavTrap	(void);
 
 		ScavTrap&		operator=(const ScavTrap &Sample);
+		void			attack(const string& target);
 		void			guardGate();
 };
 
