@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:24:34 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/06/24 14:23:36 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/07/11 19:15:28 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ class	ClapTrap {
 		void			attack(const string& target);
 		void			takeDamage(unsigned int amount);
 		void			beRepaired(unsigned int amount);
-		const string	getName();
+		const string	getName() const;
 		void			energyCost(unsigned int amount);
 
 	protected:

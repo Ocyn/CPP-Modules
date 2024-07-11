@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:24:34 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/06/26 17:51:17 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/07/11 19:29:10 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,12 @@ ScavTrap&	ScavTrap::operator=(const ScavTrap &Sample)
 void	ScavTrap::attack(const string& target)
 {
 	std::cout << "ScavTrap " << this->_Name;
-	if (this->_energyPoints - 1 <= 0)
+	if (this->_hitPoints <= 0)
+	{
+		std::cout << " is dead... Can't do anything " << std::endl;
+		return ;
+	}
+	if (this->_energyPoints <= 0)
 	{
 		std::cout << " does not have enough energy points... Sorry" << std::endl;
 		return ;
@@ -64,8 +69,18 @@ void	ScavTrap::attack(const string& target)
 	std::cout << "He got now " << this->_energyPoints << " Energy points" << std::endl;
 }
 
-void	ScavTrap::guardGate()
+void	ScavTrap::guardGate() const
 {
+	if (this->_hitPoints <= 0)
+	{
+		std::cout << " is dead... Can't do anything " << std::endl;
+		return ;
+	}
+	if (this->_energyPoints <= 0)
+	{
+		std::cout << " does not have enough energy points... Sorry" << std::endl;
+		return ;
+	}
 	std::cout << "GATE KEEPER MODE !!!" << std::endl;
 	return ;
 }

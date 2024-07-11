@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:24:34 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/06/24 14:34:12 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/07/11 19:30:42 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,18 @@ ScavTrap&	ScavTrap::operator=(const ScavTrap &Sample)
 	return (*this);
 }
 
-void	ScavTrap::guardGate()
+void	ScavTrap::guardGate() const
 {
+	if (this->_hitPoints <= 0)
+	{
+		std::cout << " is dead... Can't do anything " << std::endl;
+		return ;
+	}
+	if (this->_energyPoints <= 0)
+	{
+		std::cout << " does not have enough energy points... Sorry" << std::endl;
+		return ;
+	}
 	std::cout << "GATE KEEPER MODE !!!" << std::endl;
 	return ;
 }

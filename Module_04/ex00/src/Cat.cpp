@@ -1,36 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   Cat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:24:34 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/07/11 19:16:01 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/06/24 14:24:11 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#include "Cat.hpp"
 
-# include <iostream>
-# include <iomanip>
-# include <sstream>
-# include <cstdlib>
-# include <cstring>
-# include "ClapTrap.hpp"
+Cat::Cat(): _Type("Cat")
+{
+	std::cout << "Cat Default Construct" << std::endl;
+	return ;
+}
 
-class	ScavTrap: public ClapTrap {
+Cat::Cat(const Cat &Sample): _Type("Cat")
+{
+	std::cout << "Cat Recopy Construct" << std::endl;
+	*this = Sample;
+	return ;
+}
 
-	public:
-		ScavTrap			(void);
-		ScavTrap			(const string Name);
-		ScavTrap			(const ScavTrap &Sample);
-		virtual ~ScavTrap	(void);
+Cat::~Cat( void )
+{
+	std::cout << "Cat Destruct" << std::endl;
+	return ;
+}
 
-		ScavTrap&		operator=(const ScavTrap &Sample);
-		void			attack(const string& target);
-		void			guardGate() const;
-};
-
-#endif
+Cat&	Cat::operator=(const Cat &Sample)
+{
+	this->_Type = Sample._Type;
+	return (*this);
+}

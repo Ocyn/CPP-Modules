@@ -1,36 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   Animal.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:24:34 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/07/11 19:16:01 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/06/24 14:24:11 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#include "Animal.hpp"
 
-# include <iostream>
-# include <iomanip>
-# include <sstream>
-# include <cstdlib>
-# include <cstring>
-# include "ClapTrap.hpp"
+Animal::Animal()
+{
+	std::cout << "Animal Default Construct" << std::endl;
+	return ;
+}
 
-class	ScavTrap: public ClapTrap {
+Animal::Animal(const Animal &Sample)
+{
+	std::cout << "Animal Recopy Construct" << std::endl;
+	*this = Sample;
+	return ;
+}
 
-	public:
-		ScavTrap			(void);
-		ScavTrap			(const string Name);
-		ScavTrap			(const ScavTrap &Sample);
-		virtual ~ScavTrap	(void);
+Animal::~Animal( void )
+{
+	std::cout << "Animal Destruct" << std::endl;
+	return ;
+}
 
-		ScavTrap&		operator=(const ScavTrap &Sample);
-		void			attack(const string& target);
-		void			guardGate() const;
-};
-
-#endif
+Animal&	Animal::operator=(const Animal &Sample)
+{
+	this->_Name = Sample._Name;
+	return (*this);
+}

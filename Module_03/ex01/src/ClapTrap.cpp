@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:24:34 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/06/24 14:24:11 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/07/11 19:35:20 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,13 @@ ClapTrap::ClapTrap()
 	return ;
 }
 
-ClapTrap::ClapTrap( const string Name ): _Name(Name)
+ClapTrap::ClapTrap( const string Name ): 
+_Name(Name), 
+_hitPoints(100),
+_energyPoints(10),
+_attackDammages(0)
 {
 	std::cout << "ClapTrap Construct" << std::endl;
-	this->_hitPoints = 100;
-	this->_energyPoints = 10;
-	this->_attackDammages = 0;
 	return ;
 }
 
@@ -52,7 +53,12 @@ ClapTrap&	ClapTrap::operator=(const ClapTrap &Sample)
 void	ClapTrap::attack(const string& target)
 {
 	std::cout << "ClapTrap " << this->_Name;
-	if (this->_energyPoints - 1 <= 0)
+	if (this->_hitPoints <= 0)
+	{
+		std::cout << " is dead... Can't do anything " << std::endl;
+		return ;
+	}
+	if (this->_energyPoints <= 0)
 	{
 		std::cout << " doest not have enough energy points... Sorry" << std::endl;
 		return ;
@@ -87,7 +93,12 @@ void	ClapTrap::takeDamage(unsigned int amount)
 void	ClapTrap::beRepaired(unsigned int amount)
 {
 	std::cout << "ClapTrap " << this->_Name;
-	if (this->_energyPoints - amount <= 0)
+	if (this->_hitPoints - amount <= 0)
+	{
+		std::cout << " is already dead... Attacking it again is useless. " << std::endl;
+		return ;
+	}
+	if (this->_energyPoints <= 0)
 	{
 		std::cout << " doest not have enough energy points... Sorry" << std::endl;
 		return ;
@@ -101,7 +112,7 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	std::cout << "And " << this->_energyPoints << " Energy points" << std::endl;
 }
 
-const string	ClapTrap::getName()
+const string	ClapTrap::getName() const
 {
 	return (this->_Name);
 }

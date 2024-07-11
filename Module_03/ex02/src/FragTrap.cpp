@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:24:34 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/06/24 16:38:12 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/07/11 19:29:25 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,16 @@ FragTrap&	FragTrap::operator=(const FragTrap &Sample)
 
 void	FragTrap::highFivesGuys()
 {
+	if (this->_hitPoints <= 0)
+	{
+		std::cout << " is dead... Can't do anything " << std::endl;
+		return ;
+	}
+	if (this->_energyPoints <= 0)
+	{
+		std::cout << " does not have enough energy points... Sorry" << std::endl;
+		return ;
+	}
 	std::cout << "HIGH FIVE AHAHAHAHAHAHAHHAH YOU GOT IT MA BOIIIIIIIII" << std::endl;
 	return ;
 }
