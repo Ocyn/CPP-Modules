@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                       :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jcuzin <jcuzin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:24:34 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/06/24 14:23:36 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/07/16 21:32:36 by jcuzin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ class	Animal {
 	public:
 		Animal		(void);
 		Animal		(const Animal &Sample);
-		~Animal		(void);
+		Animal		(string type);
+		virtual	~Animal		(void);
 
 		Animal&		operator=(const Animal &Sample);
 		string		getType() const;

@@ -1,44 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcuzin <jcuzin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:24:34 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/07/16 21:32:46 by jcuzin           ###   ########.fr       */
+/*   Updated: 2024/07/16 21:32:48 by jcuzin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "WrongAnimal.hpp"
 
-Dog::Dog(): Animal("Dog")
+WrongAnimal::WrongAnimal()
 {
-	std::cout << "Dog Default Construct" << std::endl;
+	std::cout << "WrongAnimal Default Construct" << std::endl;
 	return ;
 }
 
-Dog::Dog(const Dog &Sample): Animal("Dog")
+WrongAnimal::WrongAnimal(string type): _Type(type)
 {
-	std::cout << "Dog Recopy Construct" << std::endl;
+	std::cout << "WrongAnimal 2nd Construct" << std::endl;
+	return ;
+}
+
+WrongAnimal::WrongAnimal(const WrongAnimal &Sample)
+{
+	std::cout << "WrongAnimal Recopy Construct" << std::endl;
 	*this = Sample;
 	return ;
 }
 
-Dog::~Dog( void )
+WrongAnimal::~WrongAnimal( void )
 {
-	std::cout << "Dog Destruct" << std::endl;
+	std::cout << "WrongAnimal Destruct" << std::endl;
 	return ;
 }
 
-Dog&	Dog::operator=(const Dog &Sample)
+WrongAnimal&	WrongAnimal::operator=(const WrongAnimal &Sample)
 {
 	this->_Type = Sample._Type;
 	return (*this);
 }
 
-void	Dog::makeSound() const
+string	WrongAnimal::getType() const
 {
-	std::cout << "Le chien fait Waf Waf" << std::endl;
+	return (this->_Type);
+}
+
+void	WrongAnimal::makeSound() const
+{
+	std::cout << "L'Animal fait du bruit incoherent car c pas le bon" << std::endl;
 	return ;
 }

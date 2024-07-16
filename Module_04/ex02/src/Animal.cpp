@@ -25,6 +25,12 @@ Animal::Animal(const Animal &Sample)
 	return ;
 }
 
+Animal::Animal(string type): _Type(type)
+{
+	std::cout << "Animal 2nd Construct" << std::endl;
+	return ;
+}
+
 Animal::~Animal( void )
 {
 	std::cout << "Animal Destruct" << std::endl;

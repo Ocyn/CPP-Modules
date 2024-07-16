@@ -28,6 +28,7 @@ class	Animal {
 	public:
 		Animal		(void);
 		Animal		(const Animal &Sample);
+		Animal		(string type);
 		virtual ~Animal		(void);
 
 		Animal&		operator=(const Animal &Sample);

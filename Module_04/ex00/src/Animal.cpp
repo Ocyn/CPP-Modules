@@ -18,6 +18,12 @@ Animal::Animal()
 	return ;
 }
 
+Animal::Animal(string type): _Type(type)
+{
+	std::cout << "Animal 2nd Construct" << std::endl;
+	return ;
+}
+
 Animal::Animal(const Animal &Sample)
 {
 	std::cout << "Animal Recopy Construct" << std::endl;

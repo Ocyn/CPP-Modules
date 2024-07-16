@@ -20,16 +20,17 @@
 # include <cstring>
 
 # include "Animal.hpp"
+# include "WrongAnimal.hpp"
 
 typedef std::string string;
 
-class	WrongCat : public Animal {
+class	WrongCat : public WrongAnimal {
 
 	public:
 		WrongCat				(void);
 		WrongCat				(const string Name);
 		WrongCat				(const WrongCat &Sample);
-		virtual	~WrongCat	(void);
+		~WrongCat	(void);
 		WrongCat&			operator=(const WrongCat &Sample);
 
 		void			makeSound() const;

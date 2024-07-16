@@ -12,13 +12,13 @@
 
 #include "Cat.hpp"
 
-Cat::Cat(): Animal(), _Type("Cat")
+Cat::Cat(): Animal("Cat")
 {
 	std::cout << "Cat Default Construct" << std::endl;
 	return ;
 }
 
-Cat::Cat(const Cat &Sample): Animal(), _Type("Cat")
+Cat::Cat(const Cat &Sample): Animal("Cat")
 {
 	std::cout << "Cat Recopy Construct" << std::endl;
 	*this = Sample;
@@ -39,6 +39,6 @@ Cat&	Cat::operator=(const Cat &Sample)
 
 void	Cat::makeSound() const
 {
-	std::cout << "Le chat fait Waf Waf" << std::endl;
+	std::cout << "Le chat fait Mew mew" << std::endl;
 	return ;
 }

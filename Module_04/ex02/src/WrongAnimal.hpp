@@ -1,44 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcuzin <jcuzin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:24:34 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/07/16 21:32:46 by jcuzin           ###   ########.fr       */
+/*   Updated: 2024/07/16 21:32:34 by jcuzin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#ifndef	WRONG_ANIMAL
+# define WRONG_ANIMAL
 
-Dog::Dog(): Animal("Dog")
-{
-	std::cout << "Dog Default Construct" << std::endl;
-	return ;
-}
+# include <iostream>
+# include <iomanip>
+# include <sstream>
+# include <cstdlib>
+# include <cstring>
 
-Dog::Dog(const Dog &Sample): Animal("Dog")
-{
-	std::cout << "Dog Recopy Construct" << std::endl;
-	*this = Sample;
-	return ;
-}
+typedef std::string string;
 
-Dog::~Dog( void )
-{
-	std::cout << "Dog Destruct" << std::endl;
-	return ;
-}
+class	WrongAnimal {
 
-Dog&	Dog::operator=(const Dog &Sample)
-{
-	this->_Type = Sample._Type;
-	return (*this);
-}
+	public:
+		WrongAnimal		(void);
+		WrongAnimal		(const WrongAnimal &Sample);
+		WrongAnimal		(string type);
+		virtual	~WrongAnimal		(void);
 
-void	Dog::makeSound() const
-{
-	std::cout << "Le chien fait Waf Waf" << std::endl;
-	return ;
-}
+		WrongAnimal&		operator=(const WrongAnimal &Sample);
+		string				getType() const;
+		void				makeSound() const;
+
+	protected:
+		string		_Type;
+};
+
+#endif

@@ -12,13 +12,13 @@
 
 #include "WrongCat.hpp"
 
-WrongCat::WrongCat(): Animal(), _Type("Dog")
+WrongCat::WrongCat(): WrongAnimal("WrongCat")
 {
 	std::cout << "WrongCat Default Construct" << std::endl;
 	return ;
 }
 
-WrongCat::WrongCat(const WrongCat &Sample): Animal(), _Type("WrongCat")
+WrongCat::WrongCat(const WrongCat &Sample): WrongAnimal("WrongCat")
 {
 	std::cout << "WrongCat Recopy Construct" << std::endl;
 	*this = Sample;

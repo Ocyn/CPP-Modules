@@ -29,7 +29,7 @@ class	Dog : public Animal {
 		Dog				(void);
 		Dog				(const string Name);
 		Dog				(const Dog &Sample);
-		virtual	~Dog	(void);
+		~Dog	(void);
 
 		Dog&		operator=(const Dog &Sample);
 		void		makeSound() const;

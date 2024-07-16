@@ -33,6 +33,7 @@ ALL_SRC				= Animal.cpp \
 					Dog.cpp \
 					Cat.cpp \
 					WrongCat.cpp \
+					WrongAnimal.cpp \
 					main.cpp
 
 ALL_HEADERS			= $(ALL_SRC:.cpp=.hpp)
