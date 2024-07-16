@@ -1,45 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                       :+:      :+:    :+:   */
+/*   Animal.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:24:34 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/06/24 14:23:36 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/06/24 14:24:11 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	CAT_HPP
-# define CAT_HPP
+#include "Brain.hpp"
 
-# include <iostream>
-# include <iomanip>
-# include <sstream>
-# include <cstdlib>
-# include <cstring>
+Brain::Brain()
+{
+	std::cout << "Brain Default Construct" << std::endl;
+	return ;
+}
 
-# include "Animal.hpp"
-# include "Brain.hpp"
+Brain::Brain(const Brain &Sample)
+{
+	std::cout << "Brain Recopy Construct" << std::endl;
+	*this = Sample;
+	return ;
+}
 
-typedef std::string string;
+Brain::~Brain( void )
+{
+	std::cout << "Brain Destruct" << std::endl;
+	return ;
+}
 
-class	Cat : public Animal {
-
-	public:
-		Cat				(void);
-		Cat				(const Cat &Sample);
-		~Cat	(void);
-
-		Cat&			operator=(const Cat &Sample);
-
-		void			makeSound() const;
-
-	protected:
-		string		_Type;
-
-	private:
-		Brain		*_Brain;
-};
-
-#endif
+Brain&	Brain::operator=(const Brain &Sample)
+{
+	for (size_t i = 0; i < 100; i++)
+		this->_Ideas[i] = Sample._Ideas[i];
+	return (*this);
+}

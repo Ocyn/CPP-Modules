@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                       :+:      :+:    :+:   */
+/*   Animal.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	CAT_HPP
-# define CAT_HPP
+#ifndef	BRAIN_HPP
+# define BRAIN_HPP
 
 # include <iostream>
 # include <iomanip>
@@ -19,27 +19,19 @@
 # include <cstdlib>
 # include <cstring>
 
-# include "Animal.hpp"
-# include "Brain.hpp"
-
 typedef std::string string;
 
-class	Cat : public Animal {
+class	Brain {
 
 	public:
-		Cat				(void);
-		Cat				(const Cat &Sample);
-		~Cat	(void);
+		Brain		(void);
+		Brain		(const Brain &Sample);
+		~Brain		(void);
 
-		Cat&			operator=(const Cat &Sample);
-
-		void			makeSound() const;
-
-	protected:
-		string		_Type;
+		Brain&		operator=(const Brain &Sample);
 
 	private:
-		Brain		*_Brain;
+		string		_Ideas[100];
 };
 
 #endif

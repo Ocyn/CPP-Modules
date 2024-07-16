@@ -10,40 +10,35 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "WrongCat.hpp"
 
-Cat::Cat(): Animal(), _Type("Cat")
+WrongCat::WrongCat(): Animal(), _Type("Dog")
 {
-	this->_Brain = new Brain();
-	std::cout << "Cat Default Construct" << std::endl;
+	std::cout << "WrongCat Default Construct" << std::endl;
 	return ;
 }
 
-Cat::Cat(const Cat &Sample): Animal(), _Type("Cat")
+WrongCat::WrongCat(const WrongCat &Sample): Animal(), _Type("WrongCat")
 {
-	std::cout << "Cat Recopy Construct" << std::endl;
-	this->_Brain = new Brain(*Sample._Brain);
+	std::cout << "WrongCat Recopy Construct" << std::endl;
 	*this = Sample;
 	return ;
 }
 
-Cat::~Cat( void )
+WrongCat::~WrongCat( void )
 {
-	std::cout << "Cat Destruct" << std::endl;
-	delete this->_Brain;
+	std::cout << "WrongCat Destruct" << std::endl;
 	return ;
 }
 
-Cat&	Cat::operator=(const Cat &Sample)
+WrongCat&	WrongCat::operator=(const WrongCat &Sample)
 {
 	this->_Type = Sample._Type;
-	delete this->_Brain;
-	this->_Brain = new Brain(*Sample._Brain);
 	return (*this);
 }
 
-void	Cat::makeSound() const
+void	WrongCat::makeSound() const
 {
-	std::cout << "Le chat fait Mew Mew" << std::endl;
+	std::cout << "Le chat fait =-KJscscscSNSHUscscscscacFBHBEWIUFHdcscscssU8FH3jenkbdvdvssdvWI898UYT43TYfssefscscscdscKY9UL9ESD38J9.UMYU65R7F586RC56XE685EC56UYGV653a5yugtuyef" << std::endl;
 	return ;
 }

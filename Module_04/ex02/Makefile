@@ -1,6 +1,6 @@
 #________________________MACROS
 
-NAME				= DontWannaBurnDaWorld
+NAME				= Abstract
 
 #____________DEBUGGING
 RESET				= \033[0m

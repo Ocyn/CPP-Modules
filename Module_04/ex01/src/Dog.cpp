@@ -14,29 +14,31 @@
 
 Dog::Dog(): Animal(), _Type("Dog")
 {
-	this->_Brain = new Brain();
 	std::cout << "Dog Default Construct" << std::endl;
+	this->_Brain = new Brain();
 	return ;
 }
 
 Dog::Dog(const Dog &Sample): Animal()
 {
 	std::cout << "Dog Recopy Construct" << std::endl;
+	this->_Brain = new Brain(*Sample._Brain);
 	*this = Sample;
 	return ;
 }
 
 Dog::~Dog( void )
 {
-	std::cout << "Dog Destruct" << std::endl;
 	delete this->_Brain;
+	std::cout << "Dog Destruct" << std::endl;
 	return ;
 }
 
 Dog&	Dog::operator=(const Dog &Sample)
 {
 	this->_Type = Sample._Type;
-	this->_Brain = Sample._Brain;
+	delete this->_Brain;
+	this->_Brain = new Brain(*Sample._Brain);
 	return (*this);
 }
 

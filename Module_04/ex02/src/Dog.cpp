@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                       :+:      :+:    :+:   */
+/*   Dog.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,31 +10,31 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "Dog.hpp"
 
-Cat::Cat(): Animal(), _Type("Cat")
+Dog::Dog(): Animal(), _Type("Dog")
 {
 	this->_Brain = new Brain();
-	std::cout << "Cat Default Construct" << std::endl;
+	std::cout << "Dog Default Construct" << std::endl;
 	return ;
 }
 
-Cat::Cat(const Cat &Sample): Animal(), _Type("Cat")
+Dog::Dog(const Dog &Sample): Animal()
 {
-	std::cout << "Cat Recopy Construct" << std::endl;
+	std::cout << "Dog Recopy Construct" << std::endl;
 	this->_Brain = new Brain(*Sample._Brain);
 	*this = Sample;
 	return ;
 }
 
-Cat::~Cat( void )
+Dog::~Dog( void )
 {
-	std::cout << "Cat Destruct" << std::endl;
+	std::cout << "Dog Destruct" << std::endl;
 	delete this->_Brain;
 	return ;
 }
 
-Cat&	Cat::operator=(const Cat &Sample)
+Dog&	Dog::operator=(const Dog &Sample)
 {
 	this->_Type = Sample._Type;
 	delete this->_Brain;
@@ -42,8 +42,8 @@ Cat&	Cat::operator=(const Cat &Sample)
 	return (*this);
 }
 
-void	Cat::makeSound() const
+void	Dog::makeSound() const
 {
-	std::cout << "Le chat fait Mew Mew" << std::endl;
+	std::cout << "Le chien fait Waf Waf" << std::endl;
 	return ;
 }

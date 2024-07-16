@@ -6,7 +6,7 @@
 /*   By: jcuzin <jcuzin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 09:31:53 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/07/16 20:39:16 by jcuzin           ###   ########.fr       */
+/*   Updated: 2024/07/16 20:58:10 by jcuzin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ int main()
 	/*	TEST 1	*/
 
 	Animal *Peal[_NB];
+
+	/*	TEST ABSTRACT CLASS	*/
+	// Animal hey(); Test
 
 	for (size_t i = 0; i < _NB / 2; i++)
 		Peal[i] = new Dog();

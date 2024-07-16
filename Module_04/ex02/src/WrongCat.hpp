@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	CAT_HPP
-# define CAT_HPP
+#ifndef	WRONGCAT_HPP
+# define WRONGCAT_HPP
 
 # include <iostream>
 # include <iomanip>
@@ -20,26 +20,22 @@
 # include <cstring>
 
 # include "Animal.hpp"
-# include "Brain.hpp"
 
 typedef std::string string;
 
-class	Cat : public Animal {
+class	WrongCat : public Animal {
 
 	public:
-		Cat				(void);
-		Cat				(const Cat &Sample);
-		~Cat	(void);
-
-		Cat&			operator=(const Cat &Sample);
+		WrongCat				(void);
+		WrongCat				(const string Name);
+		WrongCat				(const WrongCat &Sample);
+		virtual	~WrongCat	(void);
+		WrongCat&			operator=(const WrongCat &Sample);
 
 		void			makeSound() const;
 
 	protected:
 		string		_Type;
-
-	private:
-		Brain		*_Brain;
 };
 
 #endif
