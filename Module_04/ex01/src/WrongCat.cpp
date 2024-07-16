@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                       :+:      :+:    :+:   */
+/*   Cat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,40 +10,35 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "WrongCat.hpp"
 
-Animal::Animal()
+WrongCat::WrongCat(): Animal(), _Type("Dog")
 {
-	std::cout << "Animal Default Construct" << std::endl;
+	std::cout << "WrongCat Default Construct" << std::endl;
 	return ;
 }
 
-Animal::Animal(const Animal &Sample)
+WrongCat::WrongCat(const WrongCat &Sample): Animal(), _Type("WrongCat")
 {
-	std::cout << "Animal Recopy Construct" << std::endl;
+	std::cout << "WrongCat Recopy Construct" << std::endl;
 	*this = Sample;
 	return ;
 }
 
-Animal::~Animal( void )
+WrongCat::~WrongCat( void )
 {
-	std::cout << "Animal Destruct" << std::endl;
+	std::cout << "WrongCat Destruct" << std::endl;
 	return ;
 }
 
-Animal&	Animal::operator=(const Animal &Sample)
+WrongCat&	WrongCat::operator=(const WrongCat &Sample)
 {
 	this->_Type = Sample._Type;
 	return (*this);
 }
 
-string	Animal::getType() const
+void	WrongCat::makeSound() const
 {
-	return (this->_Type);
-}
-
-void	Animal::makeSound() const
-{
-	std::cout << "L'animal fait du bruit" << std::endl;
+	std::cout << "Le chat fait =-KJscscscSNSHUscscscscacFBHBEWIUFHdcscscssU8FH3jenkbdvdvssdvWI898UYT43TYfssefscscscdscKY9UL9ESD38J9.UMYU65R7F586RC56XE685EC56UYGV653a5yugtuyef" << std::endl;
 	return ;
 }

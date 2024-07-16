@@ -1,6 +1,6 @@
 #________________________MACROS
 
-NAME				= Polymorph
+NAME				= DontWannaBurnDaWorld
 
 #____________DEBUGGING
 RESET				= \033[0m

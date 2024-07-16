@@ -19,6 +19,8 @@
 # include <cstdlib>
 # include <cstring>
 
+# include "Brain.hpp"
+
 typedef std::string string;
 
 class	Animal {

@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef	BRAIN_HPP
+# define BRAIN_HPP
 
 # include <iostream>
 # include <iomanip>
@@ -21,19 +21,17 @@
 
 typedef std::string string;
 
-class	Animal {
+class	Brain {
 
 	public:
-		Animal		(void);
-		Animal		(const Animal &Sample);
-		~Animal		(void);
+		Brain		(void);
+		Brain		(const Brain &Sample);
+		~Brain		(void);
 
-		Animal&		operator=(const Animal &Sample);
-		string		getType() const;
-		virtual	void		makeSound() const;
+		Brain&		operator=(const Brain &Sample);
 
-	protected:
-		string		_Type;
+	private:
+		string		_Ideas[100];
 };
 
 #endif

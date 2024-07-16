@@ -12,13 +12,13 @@
 
 #include "Dog.hpp"
 
-Dog::Dog(): _Type("Dog")
+Dog::Dog(): Animal(), _Type("Dog")
 {
 	std::cout << "Dog Default Construct" << std::endl;
 	return ;
 }
 
-Dog::Dog(const Dog &Sample): _Type("Dog")
+Dog::Dog(const Dog &Sample): Animal()
 {
 	std::cout << "Dog Recopy Construct" << std::endl;
 	*this = Sample;
@@ -33,6 +33,12 @@ Dog::~Dog( void )
 
 Dog&	Dog::operator=(const Dog &Sample)
 {
-	this->_Name = Sample._Name;
+	this->_Type = Sample._Type;
 	return (*this);
+}
+
+void	Dog::makeSound() const
+{
+	std::cout << "Le chien fait Waf Waf" << std::endl;
+	return ;
 }

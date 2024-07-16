@@ -30,8 +30,9 @@ class	Cat : public Animal {
 		Cat				(const string Name);
 		Cat				(const Cat &Sample);
 		virtual	~Cat	(void);
+		Cat&			operator=(const Cat &Sample);
 
-		Cat&		operator=(const Cat &Sample);
+		void			makeSound() const;
 
 	protected:
 		string		_Type;

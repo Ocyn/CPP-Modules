@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                       :+:      :+:    :+:   */
+/*   Dog.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef	DOG_HPP
+# define DOG_HPP
 
 # include <iostream>
 # include <iomanip>
@@ -19,21 +19,24 @@
 # include <cstdlib>
 # include <cstring>
 
+# include "Animal.hpp"
+
 typedef std::string string;
 
-class	Animal {
+class	Dog : public Animal {
 
 	public:
-		Animal		(void);
-		Animal		(const Animal &Sample);
-		~Animal		(void);
+		Dog				(void);
+		Dog				(const string Name);
+		Dog				(const Dog &Sample);
+		virtual	~Dog	(void);
 
-		Animal&		operator=(const Animal &Sample);
-		string		getType() const;
-		virtual	void		makeSound() const;
-
+		Dog&		operator=(const Dog &Sample);
+		void		makeSound() const;
 	protected:
 		string		_Type;
+	private:
+		Brain		*_Brain;
 };
 
 #endif

@@ -10,40 +10,30 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "Brain.hpp"
 
-Animal::Animal()
+Brain::Brain()
 {
-	std::cout << "Animal Default Construct" << std::endl;
+	std::cout << "Brain Default Construct" << std::endl;
 	return ;
 }
 
-Animal::Animal(const Animal &Sample)
+Brain::Brain(const Brain &Sample)
 {
-	std::cout << "Animal Recopy Construct" << std::endl;
+	std::cout << "Brain Recopy Construct" << std::endl;
 	*this = Sample;
 	return ;
 }
 
-Animal::~Animal( void )
+Brain::~Brain( void )
 {
-	std::cout << "Animal Destruct" << std::endl;
+	std::cout << "Brain Destruct" << std::endl;
 	return ;
 }
 
-Animal&	Animal::operator=(const Animal &Sample)
+Brain&	Brain::operator=(const Brain &Sample)
 {
-	this->_Type = Sample._Type;
+	for (size_t i = 0; i < 100; i++)
+		this->_Ideas[i] = Sample._Ideas[i];
 	return (*this);
-}
-
-string	Animal::getType() const
-{
-	return (this->_Type);
-}
-
-void	Animal::makeSound() const
-{
-	std::cout << "L'animal fait du bruit" << std::endl;
-	return ;
 }

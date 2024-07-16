@@ -32,7 +32,7 @@ class	Dog : public Animal {
 		virtual	~Dog	(void);
 
 		Dog&		operator=(const Dog &Sample);
-
+		void		makeSound() const;
 	protected:
 		string		_Type;
 };

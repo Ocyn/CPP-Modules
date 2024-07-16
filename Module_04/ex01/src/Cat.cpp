@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                       :+:      :+:    :+:   */
+/*   Cat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,40 +10,37 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "Cat.hpp"
 
-Animal::Animal()
+Cat::Cat(): Animal(), _Type("Cat")
 {
-	std::cout << "Animal Default Construct" << std::endl;
+	this->_Brain = new Brain();
+	std::cout << "Cat Default Construct" << std::endl;
 	return ;
 }
 
-Animal::Animal(const Animal &Sample)
+Cat::Cat(const Cat &Sample): Animal(), _Type("Cat")
 {
-	std::cout << "Animal Recopy Construct" << std::endl;
+	std::cout << "Cat Recopy Construct" << std::endl;
 	*this = Sample;
 	return ;
 }
 
-Animal::~Animal( void )
+Cat::~Cat( void )
 {
-	std::cout << "Animal Destruct" << std::endl;
+	std::cout << "Cat Destruct" << std::endl;
+	delete this->_Brain;
 	return ;
 }
 
-Animal&	Animal::operator=(const Animal &Sample)
+Cat&	Cat::operator=(const Cat &Sample)
 {
 	this->_Type = Sample._Type;
 	return (*this);
 }
 
-string	Animal::getType() const
+void	Cat::makeSound() const
 {
-	return (this->_Type);
-}
-
-void	Animal::makeSound() const
-{
-	std::cout << "L'animal fait du bruit" << std::endl;
+	std::cout << "Le chat fait Waf Waf" << std::endl;
 	return ;
 }

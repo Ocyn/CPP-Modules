@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                       :+:      :+:    :+:   */
+/*   Cat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef	WRONGCAT_HPP
+# define WRONGCAT_HPP
 
 # include <iostream>
 # include <iomanip>
@@ -19,18 +19,20 @@
 # include <cstdlib>
 # include <cstring>
 
+# include "Animal.hpp"
+
 typedef std::string string;
 
-class	Animal {
+class	WrongCat : public Animal {
 
 	public:
-		Animal		(void);
-		Animal		(const Animal &Sample);
-		~Animal		(void);
+		WrongCat				(void);
+		WrongCat				(const string Name);
+		WrongCat				(const WrongCat &Sample);
+		virtual	~WrongCat	(void);
+		WrongCat&			operator=(const WrongCat &Sample);
 
-		Animal&		operator=(const Animal &Sample);
-		string		getType() const;
-		virtual	void		makeSound() const;
+		void			makeSound() const;
 
 	protected:
 		string		_Type;
