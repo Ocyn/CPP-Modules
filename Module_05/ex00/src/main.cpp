@@ -6,7 +6,7 @@
 /*   By: jcuzin <jcuzin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 09:31:53 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/07/17 12:12:58 by jcuzin           ###   ########.fr       */
+/*   Updated: 2024/07/17 17:38:57 by jcuzin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int main()
 	std::cout << "\nTEST 1" << std::endl;
 	/*	TEST 1	*/
 
-	Bureaucrat Peal;
+	Bureaucrat Peal("Michel", 99);
 
 	Test(Peal);
 }

@@ -1,6 +1,6 @@
 #________________________MACROS
 
-NAME				= bureaucrat
+NAME				= Bureaucrat
 
 #____________DEBUGGING
 RESET				= \033[0m
@@ -29,8 +29,8 @@ LIB_DIR				= lib/
 OBJ_DIR				= $(SRC_DIR)OBJ/
 
 #____________FILES
-ALL_SRC				= Bureaucrat.cpp \
-					main.cpp
+ALL_SRC				= main.cpp \
+					Bureaucrat.cpp
 
 ALL_HEADERS			= $(ALL_SRC:.cpp=.hpp)
 

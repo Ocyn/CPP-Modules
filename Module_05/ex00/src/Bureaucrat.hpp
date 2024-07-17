@@ -6,7 +6,7 @@
 /*   By: jcuzin <jcuzin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:24:34 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/07/17 12:18:12 by jcuzin           ###   ########.fr       */
+/*   Updated: 2024/07/17 17:44:38 by jcuzin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ class	Bureaucrat {
 	public:
 		Bureaucrat		(void);
 		Bureaucrat		(const Bureaucrat &Sample);
-		Bureaucrat		(int Grade);
+		Bureaucrat		(const string Name, int Grade);
 		virtual	~Bureaucrat		(void);
 
 		Bureaucrat&		operator=(const Bureaucrat &Sample);
-		string		getName() const;
-		int			getGrade() const;
+		string			getName() const;
+		int				getGrade() const;
 
 	private:
 		const string		_Name;
