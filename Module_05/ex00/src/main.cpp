@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 09:31:53 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/07/18 13:29:28 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/07/22 20:34:27 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,45 @@
 
 void	Test( Bureaucrat &Peal )
 {
-	std::cout << Peal.getName() << ":" << Peal.getGrade() << std::endl;
+	std::cout << Peal;
 	std::cout << std::endl;
 }
 
+void	lowCaseTest(Bureaucrat *Jojo, int Grade)
+{
+	try
+	{
+		Jojo = new Bureaucrat("Jotaro", Grade);
+		Test(*Jojo);
+		while (Jojo->getGrade() > 0)
+			Jojo->decrementGrade();
+		Test(*Jojo);
+		delete Jojo;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+		delete Jojo;
+	}
+}
+
+void	HighCaseTest(Bureaucrat *Jojo, int Grade)
+{
+	try
+	{
+		Jojo = new Bureaucrat("Joseph", Grade);
+		Test(*Jojo);
+		while (Jojo->getGrade() < 150)
+			Jojo->incrementGrade();
+		Test(*Jojo);
+		delete Jojo;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+		delete Jojo;
+	}
+}
 
 int main()
 {
@@ -32,14 +67,16 @@ int main()
 
 	try
 	{
-		Yo = new Bureaucrat("Jojo", 8);
+		Yo = new Bureaucrat("Jojo", 151);
 		Test(*Yo);
+		delete Yo;
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << "Wesh \?\?!!  " << e.what() << '\n';
 	}
-	Test(Peal);
+	lowCaseTest(Yo, 17);
+	HighCaseTest(Yo, 99);
 
-	delete Yo;
+	Test(Peal);
 }
