@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 09:31:53 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/07/22 20:34:27 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/07/23 15:12:54 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #define _NB 10
 
-void	Test( Bureaucrat &Peal )
+void	Show( Bureaucrat &Peal )
 {
 	std::cout << Peal;
 	std::cout << std::endl;
@@ -75,8 +75,9 @@ int main()
 	{
 		std::cerr << "Wesh \?\?!!  " << e.what() << '\n';
 	}
-	lowCaseTest(Yo, 17);
-	HighCaseTest(Yo, 99);
+	//lowCaseTest(Yo, 17);
+	//HighCaseTest(Yo, 99);
 
-	Test(Peal);
+	//Show(Peal);
 }
+--
