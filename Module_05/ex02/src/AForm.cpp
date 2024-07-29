@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 16:16:15 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/07/29 20:06:53 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/07/29 20:41:18 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ _gradeToSign(gradeToSign), _gradeToExecute(gradeToExec)
 {
 	std::cout << "AForm Regular Construct" << std::endl;
 	if (this->_gradeToSign < 0 || this->_gradeToExecute < 0)
-		throw this->lowGradeE;
+		throw AForm::GradeTooLowException();
 	if (this->_gradeToSign > 150 || this->_gradeToExecute > 150)
-		throw this->highGradeE;
+		throw AForm::GradeTooHighException();
 	return ;
 }
 
@@ -65,15 +65,15 @@ void	AForm::beSigned(Bureaucrat &Sample)
 {
 	this->_isSigned = (Sample.getGrade() <= this->getGradeSign());
 	if (this->_isSigned == false)
-		throw this->lowGradeE;
+		throw AForm::GradeTooLowException();
 }
 
 void	AForm::execute(Bureaucrat const & executor) const
 {
 	if (this->ifSigned() == false)
-		throw std::exception();
+		throw AForm::FormNotSignedException();
 	if (this->_gradeToExecute < executor.getGrade())
-		throw this->lowGradeE;
+		throw AForm::GradeTooLowException();
 }
 
 string	AForm::getName() const
@@ -101,7 +101,7 @@ const char * AForm::GradeTooLowException::what() const throw()
 	return ("Grade too low");
 }
 
-const char * AForm::FormNotSigned::what() const throw()
+const char * AForm::FormNotSignedException::what() const throw()
 {
 	return ("Form is not signed");
 }

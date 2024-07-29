@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:24:34 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/07/29 20:06:37 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/07/29 20:42:15 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,10 @@ class	AForm {
 				virtual const char * what() const throw();
 		};
 
-		class	FormNotSigned: public std::exception {
+		class	FormNotSignedException: public std::exception {
 			public:
 				virtual const char * what() const throw();
 		};
-
-	public:
-		AForm::GradeTooLowException		lowGradeE;
-		AForm::GradeTooHighException	highGradeE;
 
 	private:
 		const string		_Name;

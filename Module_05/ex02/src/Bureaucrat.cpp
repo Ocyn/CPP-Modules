@@ -26,9 +26,9 @@ _Grade(150)
 {
 	std::cout << "Bureaucrat Regular Construct" << std::endl;
 	if (Grade < 1)
-		throw this->highGradeE;
+		throw Bureaucrat::GradeTooHighException();
 	if (Grade > 150)
-		throw this->lowGradeE;
+		throw Bureaucrat::GradeTooLowException();
 	this->_Grade = Grade;
 	return ;
 }
@@ -94,7 +94,7 @@ void	Bureaucrat::decrementGrade()
 	if (this->_Grade < 150)
 		this->_Grade++;
 	else
-		throw this->lowGradeE;
+		throw Bureaucrat::GradeTooLowException();
 	return;
 }
 void	Bureaucrat::incrementGrade()
@@ -102,7 +102,7 @@ void	Bureaucrat::incrementGrade()
 	if (this->_Grade > 1)
 		this->_Grade--;
 	else
-		throw this->highGradeE;
+		throw Bureaucrat::GradeTooHighException();
 	return;
 }
 

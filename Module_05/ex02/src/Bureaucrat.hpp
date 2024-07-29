@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:24:34 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/07/29 19:46:12 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/07/29 20:40:04 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,6 @@ class	Bureaucrat {
 			public:
 				virtual const char * what() const throw();
 		};
-
-	public:
-		Bureaucrat::GradeTooLowException	lowGradeE;
-		Bureaucrat::GradeTooHighException	highGradeE;
 
 	private:
 		const string		_Name;
