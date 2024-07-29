@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 16:16:15 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/07/29 18:44:33 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/07/29 18:57:04 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,8 @@ const char * Form::GradeTooLowException::what() const throw()
 std::ostream	&operator<<(std::ostream &os, const Form &Sample)
 {
 	os << Sample.getName() << ", ";
-	os << "form grade " << Sample.getGradeSign() << " / " << Sample.getGradeExec();
+	os << "form, grades " << Sample.getGradeSign() << " / " << Sample.getGradeExec();
+	os << " Sign state: " << Sample.ifSigned();
+	os << "\n";
 	return (os);
 }

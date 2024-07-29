@@ -56,7 +56,7 @@ void	Bureaucrat::signForm(Form &Sample)
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << this->getName() << "couldn’t sign " << Sample.getName() << " because " << e.what() << '\n';
+		std::cerr << this->getName() << " couldn’t sign " << Sample.getName() << " because " << e.what() << '\n';
 	}
 }
 
@@ -95,17 +95,18 @@ void	Bureaucrat::incrementGrade()
 
 const char * Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("Cannot decrement or set grade to a value above of 150");
+	return ("Grade too high");
 }
 
 const char * Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("Cannot increment or set grade to a value below of 1");
+	return ("Grade too low");
 }
 
 std::ostream	&operator<<(std::ostream &os, const Bureaucrat &Sample)
 {
 	os << Sample.getName() << ", ";
-	os << "bureaucrat grade " << Sample.getGrade();
+	os << "bureaucrat, grade " << Sample.getGrade();
+	os << "\n";
 	return (os);
 }

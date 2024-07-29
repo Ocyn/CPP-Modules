@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 09:31:53 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/07/29 18:40:57 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/07/29 19:20:42 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	GradeCaseTest()
 	try
 	{
 		Jojo = new Bureaucrat("Jotaro", 140);
-		std::cout << Jojo << std::endl;
+		std::cout << *Jojo << std::endl;
 
 		while (Jojo->getGrade() < 150)
 			Jojo->decrementGrade();
@@ -59,12 +59,12 @@ void	GradeCaseTest()
 	try
 	{
 		Jojo = new Bureaucrat("Joseph", 8);
-		std::cout << Jojo << std::endl;
+		std::cout << *Jojo << std::endl;
 
 		while (Jojo->getGrade() > 0)
 			Jojo->incrementGrade();
 
-		std::cout << Jojo << std::endl;
+		std::cout << *Jojo << std::endl;
 		delete Jojo;
 	}
 	catch(const std::exception& e)
@@ -76,19 +76,40 @@ void	GradeCaseTest()
 
 void	SignCaseTest()
 {
-	Bureaucrat	*Jojo;
-	Form		*Brando;
+	// Valid grade test (should success)
 
 	try
 	{
-		Brando = new Form("Dio", 140, 40);
+		Form	Brando("Dio", 140, 40);
 		std::cout << Brando << std::endl;
 
-		Jojo = new Bureaucrat("Jotaro", 90);
+		Bureaucrat Jojo("Jotaro", 90);
+		std::cout << Jojo << std::endl;
+
+		//	This signature attempt should success without any error throwing
+		Jojo.signForm(Brando);
+		std::cout << Brando << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		// Error grade too low throwed if Bureaucrat's grade not high enough
+		std::cerr << "Error: " << e.what() << '\n';
+	}
+
+	// Invalid grade test (should fail)
+	// Valid grade test (should success)
+
+	try
+	{
+		Form	Brando("Dio", 140, 40);
 		std::cout << Brando << std::endl;
 
-		// Bureaucrat attempt to sign Form
-		Brando->beSigned(*Jojo);
+		Bureaucrat Jojo("Jotaro", 141);
+		std::cout << Jojo << std::endl;
+
+		//	This signature attempt should success without any error throwing
+		Jojo.signForm(Brando);
+		std::cout << Brando << std::endl;
 	}
 	catch(const std::exception& e)
 	{
