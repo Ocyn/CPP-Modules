@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 09:31:53 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/07/29 23:41:38 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/07/29 23:42:00 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 #define _NB 10
 
-void	SignAndExecuteTest(AForm &Brando, int ExecutesRepetition)
+void	SignAndExecuteTest(AForm &Brando, size_t ExecutesRepetition)
 {
 	// Valid grade test (should success)
 
