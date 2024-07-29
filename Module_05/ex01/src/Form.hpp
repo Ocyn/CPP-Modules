@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jcuzin <jcuzin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:24:34 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/07/23 16:19:40 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/07/29 16:15:43 by jcuzin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # include <cstring>
 # include <stdexcept>
 
+# include "Bureaucrat.hpp"
+
 typedef std::string string;
 
 class	Form {
@@ -30,14 +32,13 @@ class	Form {
 		Form		(const string Name, int _gradeToSign, int gradeToExec);
 		virtual	~Form		(void);
 
-		Form&		operator=(const Form &Sample);
+		Form&			operator=(const Form &Sample);
 		string			getName() const;
 		int				getGradeSign() const;
 		int				getGradeExec() const;
-		void			incrementGradeToSign();
-		void			decrementGradeToSign();
-		void			incrementGradeToExecute();
-		void			decrementGradeToExecute();
+		bool			ifSigned() const;
+
+		void			beSigned(Bureaucrat &Sample);
 
 	public:
 		class	GradeTooHighException: public std::exception {
@@ -57,8 +58,8 @@ class	Form {
 	private:
 		const string		_Name;
 		bool				_isSigned;
-		int					_gradeToSign;
-		int					_gradeToExecute;
+		const int			_gradeToSign;
+		const int			_gradeToExecute;
 };
 
 std::ostream	&operator<<(std::ostream &os, const Form &Sample);

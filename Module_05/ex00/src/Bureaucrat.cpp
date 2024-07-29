@@ -12,7 +12,8 @@
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat()
+Bureaucrat::Bureaucrat():
+_Name("Default")
 {
 	std::cout << "Bureaucrat Default Construct" << std::endl;
 	return ;

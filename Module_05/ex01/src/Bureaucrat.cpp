@@ -12,7 +12,8 @@
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat()
+Bureaucrat::Bureaucrat():
+_Name("Default")
 {
 	std::cout << "Bureaucrat Default Construct" << std::endl;
 	return ;
@@ -41,6 +42,20 @@ Bureaucrat::~Bureaucrat( void )
 {
 	std::cout << "Bureaucrat Destruct" << std::endl;
 	return ;
+}
+
+void	Bureaucrat::signForm(Form &Sample)
+{
+	try
+	{
+		Sample.beSigned(*this);
+		if (Sample.ifSigned() == true)
+			std::cout << this->getName() << " signed " << Sample.getName() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << this->getName() << "couldn’t sign " << Sample.getName() << " because " << e.what() << '\n';
+	}
 }
 
 Bureaucrat&	Bureaucrat::operator=(const Bureaucrat &Sample)

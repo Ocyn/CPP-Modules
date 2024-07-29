@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jcuzin <jcuzin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:24:34 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/07/22 20:32:00 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/07/29 16:03:38 by jcuzin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include <cstdlib>
 # include <cstring>
 # include <stdexcept>
+
+# include "Form.hpp"
 
 typedef std::string string;
 
@@ -35,6 +37,8 @@ class	Bureaucrat {
 		int				getGrade() const;
 		void			incrementGrade();
 		void			decrementGrade();
+
+		void			signForm(Form &Sample);
 
 	public:
 		class	GradeTooHighException: public std::exception {
