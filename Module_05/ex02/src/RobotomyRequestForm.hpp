@@ -6,12 +6,12 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:24:34 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/07/29 19:27:57 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/07/29 23:17:13 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	FORM_HPP
-# define FORM_HPP
+#ifndef	ROBOTOMYREQUESTFORM_HPP
+# define ROBOTOMYREQUESTFORM_HPP
 
 # include <iostream>
 # include <iomanip>
@@ -20,50 +20,29 @@
 # include <cstring>
 # include <stdexcept>
 
-# include "Bureaucrat.hpp"
+# include "AForm.hpp"
 
 typedef std::string string;
 
 class	Bureaucrat;
 
-class	Form {
+class	RobotomyRequestForm : public AForm {
 
 	public:
-		Form		(void);
-		Form		(const Form &Sample);
-		Form		(const string Name, int _gradeToSign, int gradeToExec);
-		virtual	~Form		(void);
+		RobotomyRequestForm		(void);
+		RobotomyRequestForm		(const RobotomyRequestForm &Sample);
+		RobotomyRequestForm		(const string Target);
+		~RobotomyRequestForm	(void);
 
-		Form&			operator=(const Form &Sample);
-		string			getName() const;
-		int				getGradeSign() const;
-		int				getGradeExec() const;
-		bool			ifSigned() const;
+		RobotomyRequestForm&			operator=(const RobotomyRequestForm &Sample);
 
-		void			beSigned(Bureaucrat &Sample);
-
-	public:
-		class	GradeTooHighException: public std::exception {
-			public:
-				virtual const char * what() const throw();
-		};
-
-		class	GradeTooLowException: public std::exception {
-			public:
-				virtual const char * what() const throw();
-		};
-
-	public:
-		Form::GradeTooLowException	lowGradeE;
-		Form::GradeTooHighException	highGradeE;
+		string							getTarget() const;
+		void							execute(Bureaucrat const & executor) const;
 
 	private:
-		const string		_Name;
-		bool				_isSigned;
-		const int			_gradeToSign;
-		const int			_gradeToExecute;
+		string	_Target;
 };
 
-std::ostream	&operator<<(std::ostream &os, const Form &Sample);
+std::ostream	&operator<<(std::ostream &os, const RobotomyRequestForm &Sample);
 
 #endif

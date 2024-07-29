@@ -32,7 +32,8 @@ OBJ_DIR				= $(SRC_DIR)OBJ/
 ALL_SRC				= main.cpp \
 					Bureaucrat.cpp \
 					AForm.cpp \
-					PresidentialPardonForm.cpp
+					PresidentialPardonForm.cpp \
+					RobotomyRequestForm.cpp
 
 ALL_HEADERS			= $(ALL_SRC:.cpp=.hpp)
 

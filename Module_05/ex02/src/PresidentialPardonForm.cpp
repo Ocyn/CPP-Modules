@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 16:16:15 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/07/29 20:58:50 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/07/29 23:06:41 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ void	PresidentialPardonForm::execute(Bureaucrat const & executor) const
 		throw AForm::FormNotSignedException();
 	if (this->getGradeExec() < executor.getGrade())
 		throw AForm::GradeTooLowException();
+	std::cout << this->getName() << " informs that " << this->getTarget();
+	std::cout << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }
 
 std::ostream	&operator<<(std::ostream &os, const PresidentialPardonForm &Sample)

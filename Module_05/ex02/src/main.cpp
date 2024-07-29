@@ -6,31 +6,33 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 09:31:53 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/07/29 20:59:54 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/07/29 23:32:56 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
 #include "Bureaucrat.hpp"
 
 #define _NB 10
 
-void	ExecuteCaseTest()
+void	SignAndExecuteTest(AForm &Brando)
 {
 	// Valid grade test (should success)
 
 	try
 	{
-		PresidentialPardonForm	Brando("Pucci");
 		std::cout << Brando << std::endl;
 
-		Bureaucrat Jojo("Jotaro", 10);
+		Bureaucrat Jojo("Jotaro", 1);
 		std::cout << Jojo << std::endl;
 
 		//	This signature attempt should success without any error throwing
 		Jojo.signForm(Brando);
 		std::cout << Brando << std::endl;
+		Jojo.executeForm(Brando);
+		Jojo.executeForm(Brando);
 		Jojo.executeForm(Brando);
 	}
 	catch(const std::exception& e)
@@ -60,5 +62,10 @@ int main()
 		Espected behavior: Form sign if Bureaucrat's grade high enough,
 		throwing grade error if grade too low
 	*/
-	ExecuteCaseTest();
+	PresidentialPardonForm	Brando("Pucci");
+	RobotomyRequestForm		Speedwagon("Stroheim");
+	SignAndExecuteTest(Brando);
+
+	SignAndExecuteTest(Speedwagon);
+	return (0);
 }
