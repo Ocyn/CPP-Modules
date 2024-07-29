@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 09:31:53 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/07/29 23:42:00 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/07/29 23:45:58 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,13 @@
 
 #define _NB 10
 
-void	SignAndExecuteTest(AForm &Brando, size_t ExecutesRepetition)
+/*
+Please provide: 
+	1- Form reference (Initialized before calling the function)
+	2- Grade (of the Bureaucrat, change it to test Grade checking for signature and execution)
+	3- ExecutesRepetitions (the number of times the Form gonna be executed by the Bureaucrat)
+*/
+void	SignAndExecuteTest(AForm &Brando, int Grade, size_t ExecutesRepetition)
 {
 	// Valid grade test (should success)
 
@@ -25,7 +31,7 @@ void	SignAndExecuteTest(AForm &Brando, size_t ExecutesRepetition)
 	{
 		std::cout << Brando << std::endl;
 
-		Bureaucrat Jojo("Jotaro", 1);
+		Bureaucrat Jojo("Jotaro", Grade);
 		std::cout << Jojo << std::endl;
 
 		//	This signature attempt should success without any error throwing
@@ -39,9 +45,6 @@ void	SignAndExecuteTest(AForm &Brando, size_t ExecutesRepetition)
 		// Error grade too low throwed if Bureaucrat's grade not high enough
 		std::cerr << "Error: " << e.what() << '\n';
 	}
-
-	// Invalid grade test (should fail)
-	// Valid grade test (should success)
 }
 
 int main()
@@ -63,8 +66,7 @@ int main()
 	*/
 	PresidentialPardonForm	Brando("Pucci");
 	RobotomyRequestForm		Speedwagon("Stroheim");
-	SignAndExecuteTest(Brando, 1);
-
-	SignAndExecuteTest(Speedwagon, 3);
+	SignAndExecuteTest(Brando, 1, 1);
+	SignAndExecuteTest(Speedwagon, 1, 3);
 	return (0);
 }
