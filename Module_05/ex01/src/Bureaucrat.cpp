@@ -13,20 +13,22 @@
 #include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat():
-_Name("Default")
+_Name("Default"),
+_Grade(150)
 {
 	std::cout << "Bureaucrat Default Construct" << std::endl;
 	return ;
 }
 
 Bureaucrat::Bureaucrat(const string Name, int Grade): 
-_Name(Name), _Grade(1)
+_Name(Name),
+_Grade(150)
 {
-	std::cout << "Bureaucrat 2nd Construct" << std::endl;
-	if (Grade < 0)
-		throw this->lowGradeE;
-	if (Grade > 150)
+	std::cout << "Bureaucrat Regular Construct" << std::endl;
+	if (Grade < 1)
 		throw this->highGradeE;
+	if (Grade > 150)
+		throw this->lowGradeE;
 	this->_Grade = Grade;
 	return ;
 }

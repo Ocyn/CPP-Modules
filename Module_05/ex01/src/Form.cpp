@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcuzin <jcuzin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 16:16:15 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/07/29 16:20:17 by jcuzin           ###   ########.fr       */
+/*   Updated: 2024/07/29 18:44:33 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ _Name(Name),
 _isSigned(0),
 _gradeToSign(gradeToSign), _gradeToExecute(gradeToExec)
 {
-	std::cout << "Form 2nd Construct" << std::endl;
+	std::cout << "Form Regular Construct" << std::endl;
 	if (this->_gradeToSign < 0 || this->_gradeToExecute < 0)
 		throw this->lowGradeE;
 	if (this->_gradeToSign > 150 || this->_gradeToExecute > 150)
@@ -36,8 +36,8 @@ _gradeToSign(gradeToSign), _gradeToExecute(gradeToExec)
 
 Form::Form(const Form &Sample): 
 _Name(Sample._Name), 
-_gradeToExecute(Sample._gradeToExecute),
-_gradeToSign(Sample._gradeToSign)
+_gradeToSign(Sample._gradeToSign),
+_gradeToExecute(Sample._gradeToExecute)
 {
 	std::cout << "Form Recopy Construct" << std::endl;
 	*this = Sample;
