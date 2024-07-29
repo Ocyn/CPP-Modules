@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 16:16:15 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/07/29 20:33:45 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/07/29 20:49:38 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,14 @@ PresidentialPardonForm&	PresidentialPardonForm::operator=(const PresidentialPard
 {
 	this->_Target = Sample._Target;
 	return (*this);
+}
+
+void	PresidentialPardonForm::execute(Bureaucrat const & executor) const
+{
+	if (this->ifSigned() == false)
+		throw AForm::FormNotSignedException();
+	if (this->getGradeExec() < executor.getGrade())
+		throw AForm::GradeTooLowException();
 }
 
 std::ostream	&operator<<(std::ostream &os, const PresidentialPardonForm &Sample)
