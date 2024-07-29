@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 09:31:53 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/07/29 23:45:58 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/07/29 23:47:31 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,21 +49,9 @@ void	SignAndExecuteTest(AForm &Brando, int Grade, size_t ExecutesRepetition)
 
 int main()
 {
-	// std::cout << "\nTEST 1" << std::endl;
-	// /*	
-	// 	Out of bound grading test
 
-	// 	Espected behavior: Throwing grade error
-	// */
-	// GradeCaseTest();
+	std::cout << "\nTESTS" << std::endl;
 
-	std::cout << "\nTEST 2" << std::endl;
-	/*	
-		Form be signed by Bureaucrat test
-		
-		Espected behavior: Form sign if Bureaucrat's grade high enough,
-		throwing grade error if grade too low
-	*/
 	PresidentialPardonForm	Brando("Pucci");
 	RobotomyRequestForm		Speedwagon("Stroheim");
 	SignAndExecuteTest(Brando, 1, 1);
