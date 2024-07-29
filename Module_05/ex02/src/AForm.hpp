@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:24:34 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/07/29 20:03:22 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/07/29 20:06:37 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ class	AForm {
 		bool			ifSigned() const;
 
 		void			beSigned(Bureaucrat &Sample);
-		virtual void	execute(Bureaucrat const & executor) = 0;
+		virtual void	execute(Bureaucrat const & executor) const = 0;
 
 	public:
 		class	GradeTooHighException: public std::exception {

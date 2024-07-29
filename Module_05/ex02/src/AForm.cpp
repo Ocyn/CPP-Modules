@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 16:16:15 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/07/29 20:03:56 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/07/29 20:06:53 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	AForm::beSigned(Bureaucrat &Sample)
 		throw this->lowGradeE;
 }
 
-void	AForm::execute(Bureaucrat const & executor)
+void	AForm::execute(Bureaucrat const & executor) const
 {
 	if (this->ifSigned() == false)
 		throw std::exception();
