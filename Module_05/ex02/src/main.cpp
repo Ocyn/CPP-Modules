@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 09:31:53 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/07/29 20:37:08 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/07/29 20:59:54 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,13 @@ void	ExecuteCaseTest()
 		PresidentialPardonForm	Brando("Pucci");
 		std::cout << Brando << std::endl;
 
-		Bureaucrat Jojo("Jotaro", 90);
+		Bureaucrat Jojo("Jotaro", 10);
 		std::cout << Jojo << std::endl;
 
 		//	This signature attempt should success without any error throwing
 		Jojo.signForm(Brando);
 		std::cout << Brando << std::endl;
+		Jojo.executeForm(Brando);
 	}
 	catch(const std::exception& e)
 	{
@@ -40,8 +41,6 @@ void	ExecuteCaseTest()
 
 	// Invalid grade test (should fail)
 	// Valid grade test (should success)
-
-
 }
 
 int main()

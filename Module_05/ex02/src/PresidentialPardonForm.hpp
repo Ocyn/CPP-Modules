@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:24:34 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/07/29 20:44:20 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/07/29 20:53:23 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ class	PresidentialPardonForm : public AForm {
 
 		PresidentialPardonForm&			operator=(const PresidentialPardonForm &Sample);
 
+		string							getTarget() const;
 		void							execute(Bureaucrat const & executor) const;
 
 	private:
