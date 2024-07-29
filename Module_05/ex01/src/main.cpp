@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 09:31:53 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/07/23 16:23:53 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/07/25 19:36:19 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,7 @@ void	GradesCaseTest(Form	*Brando)
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
+		
 	}
 }
 
@@ -124,7 +125,7 @@ int main()
 	Bureaucrat *Peal;
 	Form		*SeDUCKtive;
 
-	Peal = new Bureaucrat("Quiet", 1);
+	Peal = new Bureaucrat("Quiet", 151);
 	delete Peal;
 	SeDUCKtive = new Form("Quiet", 1, 1);
 	delete SeDUCKtive;
