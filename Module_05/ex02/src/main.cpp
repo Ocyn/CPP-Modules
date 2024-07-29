@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 09:31:53 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/07/29 23:32:56 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/07/29 23:41:38 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 #define _NB 10
 
-void	SignAndExecuteTest(AForm &Brando)
+void	SignAndExecuteTest(AForm &Brando, int ExecutesRepetition)
 {
 	// Valid grade test (should success)
 
@@ -31,9 +31,8 @@ void	SignAndExecuteTest(AForm &Brando)
 		//	This signature attempt should success without any error throwing
 		Jojo.signForm(Brando);
 		std::cout << Brando << std::endl;
-		Jojo.executeForm(Brando);
-		Jojo.executeForm(Brando);
-		Jojo.executeForm(Brando);
+		for (size_t i = 0; i < ExecutesRepetition; i++)
+			Jojo.executeForm(Brando);
 	}
 	catch(const std::exception& e)
 	{
@@ -64,8 +63,8 @@ int main()
 	*/
 	PresidentialPardonForm	Brando("Pucci");
 	RobotomyRequestForm		Speedwagon("Stroheim");
-	SignAndExecuteTest(Brando);
+	SignAndExecuteTest(Brando, 1);
 
-	SignAndExecuteTest(Speedwagon);
+	SignAndExecuteTest(Speedwagon, 3);
 	return (0);
 }
