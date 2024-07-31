@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 09:31:53 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/07/31 16:41:09 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/07/31 16:47:13 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	BullyInternTest(Intern &Stupid)
 	try
 	{
 		//	Theses Forms creation attempts should success without any error throwing
-		std::cout << "##########\tTesting makeForm: Successing expected\n" << std::endl;
+		std::cout << "##########\tTesting makeForm: Success expected\n" << std::endl;
 		Pillar = Stupid.makeForm("Robotomy Request", "Kars");
 		SignAndExecuteTest(*Pillar, 1, 3);
 		delete Pillar;
@@ -69,8 +69,8 @@ void	BullyInternTest(Intern &Stupid)
 		delete Pillar;
 
 		//	This Form creation attempt should fail and throw an error message
-		std::cout << "\tTesting makeForm: Successing expected\n" << std::endl;
-		Pillar = Stupid.makeForm("Robototomy Request", "Uesh");
+		std::cout << "##########\tTesting makeForm: Failure expected\n" << std::endl;
+		Pillar = Stupid.makeForm("Give happiness to all child in the world", "Uesh");
 		SignAndExecuteTest(*Pillar, 1, 1);
 		delete Pillar;
 	}
