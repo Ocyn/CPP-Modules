@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 16:16:15 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/07/31 16:33:56 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/07/31 21:19:53 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,30 +45,36 @@ AForm	*Intern::makeForm(const string Name, const string Target)
 	"Robotomy Request",
 	"Shrubbery Creation",
 	};
-
-	int	i = -1;
-
-	while (++i < 3)
-		if (!Name.compare(Type[i]))
-			break;
-	if (i < 3)
-		std::cout << "Intern creates " << Name << std::endl;
-	switch (i)
+	AForm	*(Intern::*Select[]) (const string) =
 	{
-	case 0:
-		Form = new PresidentialPardonForm(Target);
-		break;
-	case 1:
-		Form = new RobotomyRequestForm(Target);
-		break;
-	case 2:
-		Form = new ShrubberyCreationForm(Target);
-		break;
-	default:
-		throw	Intern::InvalidName();
-		break;
+		&Intern::CreatePresidentPardonForm,
+		&Intern::CreateRobotomyRequestFrom,
+		&Intern::CreateShrubberyCreationForm
+	};
+	for (int i = 0; i < 3; i++)
+	{
+		if (!Type[i].compare(Name))
+		{
+			std::cout << "Intern creates " << Name << std::endl;
+			Form = (this->*Select[i])(Target) ;
+			return (Form);
+		}
 	}
+	throw Intern::InvalidName();
 	return (Form);
+}
+
+AForm	*Intern::CreatePresidentPardonForm(const string Target)
+{
+	return (new PresidentialPardonForm(Target));
+}
+AForm	*Intern::CreateRobotomyRequestFrom(const string Target)
+{
+	return (new RobotomyRequestForm(Target));
+}
+AForm	*Intern::CreateShrubberyCreationForm(const string Target)
+{
+	return (new ShrubberyCreationForm(Target));
 }
 
 std::ostream	&operator<<(std::ostream &os, const Intern &Sample)

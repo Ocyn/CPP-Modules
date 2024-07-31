@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:24:34 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/07/31 16:05:08 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/07/31 21:25:55 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,11 @@ class	Intern {
 		Intern&			operator=(const Intern &Sample);
 
 		AForm	*makeForm(const string Name, const string Target);
+
+	private:
+		AForm	*CreatePresidentPardonForm(const string Target);
+		AForm	*CreateRobotomyRequestFrom(const string Target);
+		AForm	*CreateShrubberyCreationForm(const string Target);
 
 	public:
 		class	InvalidName: public std::exception {

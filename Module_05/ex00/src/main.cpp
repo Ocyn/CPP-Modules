@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 09:31:53 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/07/23 15:12:54 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/07/31 20:01:08 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ void	lowCaseTest(Bureaucrat *Jojo, int Grade)
 	try
 	{
 		Jojo = new Bureaucrat("Jotaro", Grade);
-		Test(*Jojo);
+		Show(*Jojo);
 		while (Jojo->getGrade() > 0)
 			Jojo->decrementGrade();
-		Test(*Jojo);
+		Show(*Jojo);
 		delete Jojo;
 	}
 	catch(const std::exception& e)
@@ -43,10 +43,10 @@ void	HighCaseTest(Bureaucrat *Jojo, int Grade)
 	try
 	{
 		Jojo = new Bureaucrat("Joseph", Grade);
-		Test(*Jojo);
+		Show(*Jojo);
 		while (Jojo->getGrade() < 150)
 			Jojo->incrementGrade();
-		Test(*Jojo);
+		Show(*Jojo);
 		delete Jojo;
 	}
 	catch(const std::exception& e)
@@ -68,7 +68,7 @@ int main()
 	try
 	{
 		Yo = new Bureaucrat("Jojo", 151);
-		Test(*Yo);
+		Show(*Yo);
 		delete Yo;
 	}
 	catch(const std::exception& e)
@@ -80,4 +80,3 @@ int main()
 
 	//Show(Peal);
 }
---

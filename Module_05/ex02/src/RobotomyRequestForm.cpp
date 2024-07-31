@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 16:16:15 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/07/31 15:05:23 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/07/31 21:26:49 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ RobotomyRequestForm::RobotomyRequestForm():
 AForm("RobotomyRequestForm", 72, 45),
 _Target("Default")
 {
+	std::srand(std::time(0));
 	std::cout << "RobotomyRequestForm Default Construct" << std::endl;
 	return ;
 }
@@ -24,6 +25,7 @@ RobotomyRequestForm::RobotomyRequestForm(const string Target):
 AForm("RobotomyRequestForm", 72, 45),
 _Target(Target)
 {
+	std::srand(std::time(0));
 	std::cout << "RobotomyRequestForm Regular Construct" << std::endl;
 	return ;
 }
@@ -31,6 +33,7 @@ _Target(Target)
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &Sample):
 AForm("RobotomyRequestForm", 72, 45)
 {
+	std::srand(std::time(0));
 	std::cout << "RobotomyRequestForm Recopy Construct" << std::endl;
 	*this = Sample;
 	return ;

@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:24:34 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/07/29 23:17:13 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/07/31 21:26:01 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <cstdlib>
 # include <cstring>
 # include <stdexcept>
+# include <ctime>
 
 # include "AForm.hpp"
 
