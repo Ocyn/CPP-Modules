@@ -6,98 +6,80 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 16:16:15 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/07/29 19:27:37 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/07/31 14:53:28 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
 
-Form::Form(): 
-_Name("Default"),
-_gradeToSign(1),
-_gradeToExecute(1)
+ShrubberyCreationForm::ShrubberyCreationForm(): 
+AForm("ShrubberyCreationForm", 145, 137),
+_Target("Default")
 {
-	std::cout << "Form Default Construct" << std::endl;
+	std::cout << "ShrubberyCreationForm Default Construct" << std::endl;
 	return ;
 }
 
-Form::Form(const string Name, int gradeToSign, int gradeToExec): 
-_Name(Name), 
-_isSigned(0),
-_gradeToSign(gradeToSign), _gradeToExecute(gradeToExec)
+ShrubberyCreationForm::ShrubberyCreationForm(const string Target): 
+AForm("ShrubberyCreationForm", 145, 137),
+_Target(Target)
 {
-	std::cout << "Form Regular Construct" << std::endl;
-	if (this->_gradeToSign < 0 || this->_gradeToExecute < 0)
-		throw this->lowGradeE;
-	if (this->_gradeToSign > 150 || this->_gradeToExecute > 150)
-		throw this->highGradeE;
+	std::cout << "ShrubberyCreationForm Regular Construct" << std::endl;
 	return ;
 }
 
-Form::Form(const Form &Sample): 
-_Name(Sample._Name), 
-_gradeToSign(Sample._gradeToSign),
-_gradeToExecute(Sample._gradeToExecute)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &Sample):
+AForm("ShrubberyCreationForm", 145, 137)
 {
-	std::cout << "Form Recopy Construct" << std::endl;
+	std::cout << "ShrubberyCreationForm Recopy Construct" << std::endl;
 	*this = Sample;
 	return ;
 }
 
-Form::~Form( void )
+ShrubberyCreationForm::~ShrubberyCreationForm( void )
 {
-	std::cout << "Form Destruct" << std::endl;
+	std::cout << "ShrubberyCreationForm Destruct" << std::endl;
 	return ;
 }
 
-Form&	Form::operator=(const Form &Sample)
+ShrubberyCreationForm&	ShrubberyCreationForm::operator=(const ShrubberyCreationForm &Sample)
 {
-	this->_isSigned = Sample._isSigned;
+	this->_Target = Sample._Target;
 	return (*this);
 }
 
-bool	Form::ifSigned() const
+string	ShrubberyCreationForm::getTarget() const
 {
-	return (this->_isSigned);
+	return (this->_Target);
 }
 
-void	Form::beSigned(Bureaucrat &Sample)
+void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
-	this->_isSigned = (Sample.getGrade() <= this->getGradeSign());
-	if (this->_isSigned == false)
-		throw this->lowGradeE;
+	if (this->ifSigned() == false)
+		throw AForm::FormNotSignedException();
+	if (this->getGradeExec() < executor.getGrade())
+		throw AForm::GradeTooLowException();
+	string			FileName = this->getTarget().append("_shrubbery");
+	std::ofstream	Outfile(FileName.c_str());
+	Outfile << "               ,@@@@@@@,\n";
+	Outfile << "       ,,,.   ,@@@@@@/@@,  .oo8888o.\n";
+	Outfile << "    ,&%%&%&&%,@@@@@/@@@@@@,8888\\88/8o\n";
+	Outfile << "   ,%&\\%&&%&&%,@@@\\@@@/@@@88\\88888/88'\n";
+	Outfile << "   %&&%&%&/%&&%@@\\@@/ /@@@88888\\88888'\n";
+	Outfile << "   %&&%/ %&%%&&@@\\ V /@@' `88\\8 `/88'\n";
+	Outfile << "   `&%\\ ` /%&'    |.|        \\ '|8'\n";
+	Outfile << "       |o|        | |         | |\n";
+	Outfile << "       |.|        | |         | |\n";
+	Outfile << "    \\/ ._\\//_/__/  ,\\_//__\\/.  \\_//__/_";
+	Outfile.close();
 }
 
-string	Form::getName() const
-{
-	return (this->_Name);
-}
-
-int	Form::getGradeSign() const
-{
-	return (this->_gradeToSign);
-}
-
-int	Form::getGradeExec() const
-{
-	return (this->_gradeToExecute);
-}
-
-const char * Form::GradeTooHighException::what() const throw()
-{
-	return ("Grade too high");
-}
-
-const char * Form::GradeTooLowException::what() const throw()
-{
-	return ("Grade too low");
-}
-
-std::ostream	&operator<<(std::ostream &os, const Form &Sample)
+std::ostream	&operator<<(std::ostream &os, const ShrubberyCreationForm &Sample)
 {
 	os << Sample.getName() << ", ";
-	os << "form, grades " << Sample.getGradeSign() << " / " << Sample.getGradeExec();
-	os << " Sign state: " << Sample.ifSigned();
+	os << "ShrubberyCreationForm, grades " << Sample.getGradeSign() << " / " << Sample.getGradeExec();
+	os << ", Sign state: " << Sample.ifSigned();
+	os << ", Target: " << Sample.getTarget();
 	os << "\n";
 	return (os);
 }

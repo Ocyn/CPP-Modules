@@ -6,13 +6,14 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 09:31:53 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/07/29 23:47:31 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/07/31 14:55:10 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 #include "Bureaucrat.hpp"
 
 #define _NB 10
@@ -54,7 +55,10 @@ int main()
 
 	PresidentialPardonForm	Brando("Pucci");
 	RobotomyRequestForm		Speedwagon("Stroheim");
+	ShrubberyCreationForm	Zeppeli("Ceasar");
+
 	SignAndExecuteTest(Brando, 1, 1);
 	SignAndExecuteTest(Speedwagon, 1, 3);
+	SignAndExecuteTest(Zeppeli, 1, 1);
 	return (0);
 }

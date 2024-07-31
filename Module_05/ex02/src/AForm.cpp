@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 16:16:15 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/07/29 20:41:18 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/07/31 14:51:41 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,14 @@ AForm&	AForm::operator=(const AForm &Sample)
 bool	AForm::ifSigned() const
 {
 	return (this->_isSigned);
+}
+
+void	AForm::checkValidity(Bureaucrat const & executor) const
+{
+	if (this->ifSigned() == false)
+		throw AForm::FormNotSignedException();
+	if (this->getGradeExec() < executor.getGrade())
+		throw AForm::GradeTooLowException();
 }
 
 void	AForm::beSigned(Bureaucrat &Sample)

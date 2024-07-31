@@ -33,7 +33,8 @@ ALL_SRC				= main.cpp \
 					Bureaucrat.cpp \
 					AForm.cpp \
 					PresidentialPardonForm.cpp \
-					RobotomyRequestForm.cpp
+					RobotomyRequestForm.cpp \
+					ShrubberyCreationForm.cpp
 
 ALL_HEADERS			= $(ALL_SRC:.cpp=.hpp)
 

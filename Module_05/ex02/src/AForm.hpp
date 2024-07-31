@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:24:34 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/07/29 20:42:15 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/07/31 14:52:03 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ class	AForm {
 		int				getGradeSign() const;
 		int				getGradeExec() const;
 		bool			ifSigned() const;
+		void			checkValidity(Bureaucrat const & executor) const;
 
 		void			beSigned(Bureaucrat &Sample);
 		virtual void	execute(Bureaucrat const & executor) const = 0;
