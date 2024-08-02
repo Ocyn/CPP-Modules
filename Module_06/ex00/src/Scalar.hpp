@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:24:34 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/07/31 17:47:12 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/08/02 13:05:48 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,17 @@
 # include <cstdlib>
 # include <cstring>
 # include <stdexcept>
+# include <boost/lexical_cast.hpp>
 
 typedef std::string string;
 
 class	Scalar {
 
-	public:
+	private:
 		Scalar		(void);
 		Scalar		(const Scalar &Sample);
-		virtual	~Scalar		(void);
+	public:
+		~Scalar		(void);
 
 		Scalar&		operator=(const Scalar &Sample);
 
@@ -35,11 +37,18 @@ class	Scalar {
 		static void	convert(string Literal);
 
 	public:
-		class	Fail: public std::exception {
+		class	Impossible: public boost::bad_lexical_cast {
 			public:
 				virtual const char * what() const throw()
 				{
-					return ("Operation failed");
+					return ("Impossible");
+				}
+		};
+		class	NotDisplayableInput: public std::exception {
+			public:
+				virtual const char * what() const throw()
+				{
+					return ("Not displayable input");
 				}
 		};
 };

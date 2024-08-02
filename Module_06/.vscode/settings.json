@@ -52,6 +52,9 @@
 		"ranges": "cpp",
 		"span": "cpp",
 		"cinttypes": "cpp",
-		"fstream": "cpp"
+		"fstream": "cpp",
+		"strstream": "cpp",
+		"complex": "cpp",
+		"cfenv": "cpp"
 	}
 }
