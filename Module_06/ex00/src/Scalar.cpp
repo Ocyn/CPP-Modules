@@ -37,48 +37,10 @@ Scalar&	Scalar::operator=(const Scalar &Sample)
 	return (*this);
 }
 
-void	Scalar::convert(string Literal)
+void	*Scalar::convert(string Literal)
 {
-	//std::cout << "[ " << Literal << " ]" << std::endl;
-	try
-	{
-		std::cout << "Char: ";
-		char	_char = boost::lexical_cast<char>(Literal);
-		std::cout << _char << std::endl;
-	}
-	catch(const boost::bad_lexical_cast& e)
-	{
-		throw Scalar::Impossible();
-	}
-	try
-	{
-		std::cout << "Int: ";
-		int	_int = boost::lexical_cast<int>(Literal);
-		std::cout << _int << std::endl;
-	}
-	catch(const boost::bad_lexical_cast& e)
-	{
-		throw Scalar::Impossible();
-	}
-	try
-	{
-		std::cout << "Float: ";
-		float	_float = boost::lexical_cast<float>(Literal);
-		std::cout << _float << std::endl;
-	}
-	catch(const boost::bad_lexical_cast& e)
-	{
-		throw Scalar::Impossible();
-	}
-	try
-	{
-		std::cout << "Double: ";
-		double	_double = boost::lexical_cast<double>(Literal);
-		std::cout << _double << std::endl;
-	}
-	catch(const boost::bad_lexical_cast& e)
-	{
-		throw Scalar::Impossible();
-	}
-	return ;
+	// Testing char
+		char	_char = static_cast<char>(Literal[0]);
+	return (&_char);
+	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 09:31:53 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/08/02 13:11:05 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/08/02 16:20:23 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,9 @@ int main(int ac, char **av)
 	std::cout << "\n________Convert\n" << std::endl;
 
 	string	In = av[1];
-	try
-	{
-		Scalar::convert(In);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
+
+	std::cout << "Char: " << (Scalar::convert(In));
+	
 	(void)av;
 	return (0);
 }
