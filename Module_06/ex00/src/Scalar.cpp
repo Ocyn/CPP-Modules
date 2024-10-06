@@ -120,7 +120,7 @@ void	ScalarConverter::printFloat(string Literal)
 	char **nptr = NULL;
 	double test = std::strtod(Literal.c_str(), nptr);
 	(void)test;
-	std::ostringstream	fl;
+	std::stringstream	fl;
 
 	fl << ScalarConverter::_float;
 	if ((nptr && (**nptr != '\0' || **nptr == 'f')) \
@@ -147,7 +147,7 @@ void	ScalarConverter::printDouble(string Literal)
 	char **nptr = NULL;
 	double test = std::strtod(Literal.c_str(), nptr);
 	(void)test;
-	std::ostringstream	db;
+	std::stringstream	db;
 
 	db << ScalarConverter::_double;
 	if ((nptr && (**nptr != '\0' || **nptr == 'f')) \
