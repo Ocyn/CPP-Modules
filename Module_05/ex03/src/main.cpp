@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 09:31:53 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/07/31 21:24:47 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/08/02 07:57:09 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ void	BullyInternTest(Intern &Stupid)
 		// Error Invalid Name if given name is not valid
 		std::cerr << e.what() << '\n';
 	}
-	
 }
 
 int main()

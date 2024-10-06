@@ -26,7 +26,7 @@ LOG__ALLSUCCESS		= @printf "\033[1;92m\n\rALL DONE $(RESET)\n\n"
 SRC_DIR				= src/
 HEAD_DIR			= src/
 LIB_DIR				= lib/
-OBJ_DIR				= $(SRC_DIR)OBJ/
+OBJ_DIR				= $(SRC_DIR).builds/
 
 #____________FILES
 ALL_SRC				= main.cpp \
