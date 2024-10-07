@@ -55,6 +55,21 @@
 		"fstream": "cpp",
 		"strstream": "cpp",
 		"complex": "cpp",
-		"cfenv": "cpp"
+		"cfenv": "cpp",
+		"csetjmp": "cpp",
+		"bitset": "cpp",
+		"chrono": "cpp",
+		"codecvt": "cpp",
+		"condition_variable": "cpp",
+		"list": "cpp",
+		"map": "cpp",
+		"set": "cpp",
+		"ratio": "cpp",
+		"mutex": "cpp",
+		"semaphore": "cpp",
+		"stop_token": "cpp",
+		"thread": "cpp",
+		"typeindex": "cpp",
+		"variant": "cpp"
 	}
 }

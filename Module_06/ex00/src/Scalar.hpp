@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:24:34 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/10/06 18:44:33 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/10/07 16:00:17 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,8 @@
 # define SCALARCONVERTER_HPP
 
 # include <iostream>
-# include <iomanip>
 # include <sstream>
 # include <cstdlib>
-# include <cstring>
-# include <string>
-# include <stdexcept>
-# include <cctype>
 # include <cmath>
 # include <limits>
 
