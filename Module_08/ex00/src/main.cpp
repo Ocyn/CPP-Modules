@@ -6,28 +6,46 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 09:31:53 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/10/08 15:53:38 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/10/08 20:11:17 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
+#include "easyfind.hpp"
 
-typedef std::string string;
 
 void	log(string content)
 {
 	std::cout << content << std::endl;
 }
 
-template< typename T >
-void	easyfind(T &seek, int n)
-{
-	
-}
 
-int main( void )
+
+#define CONTAINER_SIZE 99
+
+int main( int ac, char **av )
 {
-	
+	if (ac !=  2)
+		return (1);
+	int	seek = atoi(av[1]);
+
+	log("Trying to find element in vector");
+	std::vector<int>	bob;
+	fillContainer(bob, CONTAINER_SIZE);
+	try {
+		std::cout << *easyfind(bob, seek) << std::endl;
+	}
+	catch(const std::exception& e) {
+		std::cerr << e.what() << '\n';
+	}
+
+	log("Trying to find element in list");
+	std::list<int>	michel;
+	fillContainer(michel, CONTAINER_SIZE);
+	try {
+		std::cout << *easyfind(michel, seek) << std::endl;
+	}
+	catch(const std::exception& e) {
+		std::cerr << e.what() << '\n';
+	}
 	return 0;
 }
