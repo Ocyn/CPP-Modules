@@ -6,11 +6,11 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 09:31:53 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/10/09 15:06:14 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/10/09 19:49:00 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "easyfind.hpp"
+#include "Span.hpp"
 
 
 void	log(string content)
@@ -19,30 +19,35 @@ void	log(string content)
 }
 
 
+#define CONTAINER_SIZE 9
 
-#define CONTAINER_SIZE 99
-
-int main( int ac, char **av )
+int main()
 {
-	if (ac !=  2)
-		return (1);
-	int	seek = atoi(av[1]);
-
-	log("Trying to find element in vector");
-	std::vector<int>	bob;
-	fillContainer(bob, CONTAINER_SIZE);
+	srand(time(0));
+	log("\tCreating list");
+	Span	jeff(CONTAINER_SIZE);
+	
+	for (size_t i = 0; i <= CONTAINER_SIZE; i++)
+	{
+		unsigned int	nb = rand() % 99 + 1;
+		try {
+			jeff.addNumber(nb);
+			std::cout << "Added [" << nb << "]" << std::endl;
+		}
+		catch(const std::exception& e) {
+			std::cerr << "Couldn't add [" << nb << "] : " << e.what() << '\n';
+		}
+	}
+	log("\tShortestSpan");
 	try {
-		std::cout << *easyfind(bob, seek) << std::endl;
+		std::cout << jeff.shortestSpan() << std::endl;
 	}
 	catch(const std::exception& e) {
 		std::cerr << e.what() << '\n';
 	}
-
-	log("Trying to find element in list");
-	std::list<int>	michel;
-	fillContainer(michel, CONTAINER_SIZE);
+	log("\tLonguestspan");
 	try {
-		std::cout << *easyfind(michel, seek) << std::endl;
+		std::cout << jeff.longestSpan() << std::endl;
 	}
 	catch(const std::exception& e) {
 		std::cerr << e.what() << '\n';
