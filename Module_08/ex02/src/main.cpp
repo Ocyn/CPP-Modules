@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 09:31:53 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/10/10 20:03:48 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/10/10 20:50:06 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,6 @@ int main()
 	std::cout << *it << std::endl;
 	++it;
 	}
-	//std::stack<int> s(mstack);
+	std::stack<int> s(mstack);
 	return 0;
 }
