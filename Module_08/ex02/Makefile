@@ -29,8 +29,8 @@ LIB_DIR				= lib/
 OBJ_DIR				= $(SRC_DIR).builds/
 
 #____________FILES
-ALL_SRC				= main.cpp \
-					MutantStack.cpp
+ALL_SRC				= main.cpp
+
 
 ALL_HEADERS			= $(ALL_SRC:.cpp=.hpp)
 

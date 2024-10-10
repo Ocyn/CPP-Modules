@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 09:31:53 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/10/09 19:49:00 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/10/10 20:49:26 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int main()
 	srand(time(0));
 	log("\tCreating list");
 	Span	jeff(CONTAINER_SIZE);
-	
+	Span	fred(CONTAINER_SIZE);
 	for (size_t i = 0; i <= CONTAINER_SIZE; i++)
 	{
 		unsigned int	nb = rand() % 99 + 1;
@@ -38,6 +38,20 @@ int main()
 			std::cerr << "Couldn't add [" << nb << "] : " << e.what() << '\n';
 		}
 	}
+	log("\tTesting fillCont()");
+	std::vector<unsigned int> test(CONTAINER_SIZE);
+	for (size_t i = 0; i < CONTAINER_SIZE; i++)
+	{
+		unsigned int	nb = (rand() % 99 + 1) * 100;
+		test[i] = nb;
+	}
+	try {
+		fred.fillCont(test.begin(), test.end());
+	}
+	catch(const std::exception& e){
+		std::cerr << "Couldn't fill Fred: " << e.what() << '\n';
+	}
+	log("Added 100 numbers to Fred");
 	log("\tShortestSpan");
 	try {
 		std::cout << jeff.shortestSpan() << std::endl;
