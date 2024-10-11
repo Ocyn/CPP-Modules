@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 15:26:35 by ocyn              #+#    #+#             */
-/*   Updated: 2024/10/10 20:41:40 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/10/11 14:24:15 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ size_t		Span::longestSpan()
 	*std::min_element(this->_cont.begin(), this->_it));
 }
 
-void	Span::fillCont(std::vector<unsigned int>::const_iterator __begin, std::vector<unsigned int>::const_iterator __end)
+void	Span::addNumber(std::vector<unsigned int>::const_iterator __begin, std::vector<unsigned int>::const_iterator __end)
 {
 	if (std::distance(__begin, __end) > std::distance(this->_cont.begin(), this->_cont.end()))
 		throw	ListFull();

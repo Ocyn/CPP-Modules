@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 09:31:53 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/10/10 20:49:26 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/10/11 14:52:12 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int main()
 		test[i] = nb;
 	}
 	try {
-		fred.fillCont(test.begin(), test.end());
+		fred.addNumber(test.begin(), test.end());
 	}
 	catch(const std::exception& e){
 		std::cerr << "Couldn't fill Fred: " << e.what() << '\n';

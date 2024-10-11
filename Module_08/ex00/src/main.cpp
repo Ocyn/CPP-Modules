@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 09:31:53 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/10/09 15:06:14 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/10/11 15:21:44 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,20 @@ void	log(string content)
 }
 
 
-
 #define CONTAINER_SIZE 99
 
 int main( int ac, char **av )
 {
 	if (ac !=  2)
+	{
+		log("Invalid arguments format : ./Easyfind <number>");
 		return (1);
+	}
 	int	seek = atoi(av[1]);
-
-	log("Trying to find element in vector");
+	std::cout << "Filling container with " << CONTAINER_SIZE <<  " elements" << std::endl;
 	std::vector<int>	bob;
 	fillContainer(bob, CONTAINER_SIZE);
+	log("Trying to find element in vector");
 	try {
 		std::cout << *easyfind(bob, seek) << std::endl;
 	}

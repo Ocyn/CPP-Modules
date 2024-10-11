@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 19:14:55 by ocyn              #+#    #+#             */
-/*   Updated: 2024/10/10 20:31:57 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/10/11 15:27:22 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@ class Span
 		Span(const Span &Sample);
 		Span&		operator=(const Span& Sample);
 		void		addNumber(unsigned int N);
+		void		addNumber(std::vector<unsigned int>::const_iterator __begin, std::vector<unsigned int>::const_iterator __end);
 		size_t		shortestSpan();
 		size_t		longestSpan();
 		std::vector<unsigned int>::iterator	getDiff(const size_t i);
 		const std::vector<unsigned int>&	getCont() const;
-		void		fillCont(std::vector<unsigned int>::const_iterator __begin, std::vector<unsigned int>::const_iterator __end);
 };
 
 class	NotFoundException : public std::exception { public : const char * what() const throw(); };

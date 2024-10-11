@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 19:14:55 by ocyn              #+#    #+#             */
-/*   Updated: 2024/10/10 21:00:14 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/10/11 14:13:31 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,6 @@ class MutantStack : public std::stack<T>
 		const_reverse_iterator		crbegin() { return this->c.rbegin(); };
 		const_reverse_iterator		crend() { return this->c.rend(); };
 };
-
-class	OutOfBound : public std::exception { public : const char * what() const throw(); };
 
 template <typename T>
 std::ostream	&operator<<(std::ostream &os, const MutantStack<T> &Sample);
