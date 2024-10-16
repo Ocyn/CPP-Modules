@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 16:07:28 by ocyn              #+#    #+#             */
-/*   Updated: 2024/10/12 22:45:59 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/10/16 19:43:39 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,24 +86,33 @@ bool	checkDateFormat(const string &Date)
 		return (false);
 	if (Day < 1 || Day > 31)
 		return (false);
+	// if (Year % 4 != 0 && )
 	return (true);
 }
 
 // YEAR-MONTH-DAY,value
-void	BitcoinExchange::initInfile()
+void	BitcoinExchange::parseInfile()
 {
 	string	Line;
 	while (std::getline(this->_inFile, Line))
 	{
 		// std::cout << Line << " -> \t\t\t";
 		string	date = Line.substr(0, Line.find(" | "));
-		std::cout << date << " | ";
 		float	value = strtof(Line.substr(Line.find(" | ") + 3).c_str(), NULL);
 		if (Line.find('|') == Line.npos)
 			value = 0;
-		this->_inputFile.insert(std::make_pair(date, value));
-		std::cout << value << std::endl;
-		std::cout << "Size : " << this->getInFile().size() << std::endl;
+		std::map<string, float>::iterator	it = this->_dataBase.lower_bound(date);
+		if (it != this->_dataBase.find(date) && it != this->_dataBase.begin())
+			it--;
+		if (it != this->_dataBase.end() && checkDateFormat(date) \
+		&& it->second * value > 0 && it->second * value < 1000)
+			std::cout << date << " => " << it->second << " * " << value << " = " << it->second * value << std::endl;
+		else if (checkDateFormat(date) == false)
+			std::cerr << "Error : " << "Bad input => " << date << std::endl;
+		else if (it->second * value < 0)
+			std::cerr << "Error : " << "Not a positive Number" << std::endl;
+		else if (value > 1000)
+			std::cerr << "Error : " << "Not a positive Number" << std::endl;
 	}
 }
 
@@ -131,31 +140,31 @@ void	checkValue(const float nu)
 	
 }
 
-void	BitcoinExchange::findValue()
-{
-	// std::map<string, float>::iterator	it_db = this->_dataBase.begin();
-	std::map<string, float>::iterator	it_in = this->_inputFile.begin();
-	while (it_in != this->_inputFile.end())
-	{
-		++it_in;
-		std::cout << it_in->first;
-		if (this->_dataBase.find(it_in->first) == this->_dataBase.end())
-		{
-			std::cerr << "Not found" << std::endl;
-			continue;
-		}
-		float	result;
-		result = this->_dataBase.find(it_in->first)->second;
-		try {
-			checkValue(result);
-			std::cout << " => " << it_in->second << " = ";
-			std::cout << result << std::endl;
-		}
-		catch(const std::exception& e) {
-			std::cerr << e.what() << '\n';
-		}
-	}
-}
+// void	BitcoinExchange::findValue()
+// {
+// 	// std::map<string, float>::iterator	it_db = this->_dataBase.begin();
+// 	std::map<string, float>::iterator	it_in = this->_inputFile.begin();
+// 	while (it_in != this->_inputFile.end())
+// 	{
+// 		++it_in;
+// 		std::cout << it_in->first;
+// 		if (this->_dataBase.find(it_in->first) == this->_dataBase.end())
+// 		{
+// 			std::cerr << "Not found" << std::endl;
+// 			continue;
+// 		}
+// 		float	result;
+// 		result = this->_dataBase.find(it_in->first)->second;
+// 		try {
+// 			checkValue(result);
+// 			std::cout << " => " << it_in->second << " = ";
+// 			std::cout << result << std::endl;
+// 		}
+// 		catch(const std::exception& e) {
+// 			std::cerr << e.what() << '\n';
+// 		}
+// 	}
+// }
 
 
 const string	BitcoinExchange::getInFileName() const
@@ -168,17 +177,11 @@ const string	BitcoinExchange::getDbFileName() const
 	return (this->_dbFileName);
 }
 
-std::map<string, float>	&BitcoinExchange::getInFile()
-{
-	return (this->_inputFile);
-}
-
 
 std::map<string, float>	&BitcoinExchange::getDbFile()
 {
 	return (this->_dataBase);
 }
-
 
 
 void	BitcoinExchange::openFile(std::ifstream &File, const string &Filename)

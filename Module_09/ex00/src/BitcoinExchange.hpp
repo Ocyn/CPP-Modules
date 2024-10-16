@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 19:14:55 by ocyn              #+#    #+#             */
-/*   Updated: 2024/10/12 22:33:05 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/10/16 18:58:55 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ class BitcoinExchange
 		std::ifstream			_dbFile;
 		std::ifstream			_inFile;
 		std::map<string, float>	_dataBase;
-		std::map<string, float>	_inputFile;
 
 		BitcoinExchange(const BitcoinExchange &Sample);
 		BitcoinExchange();
@@ -48,11 +47,10 @@ class BitcoinExchange
 		const string	getInFileName() const;
 		const string	getDbFileName() const;
 
-		std::map<string, float>	&getInFile();
 		std::map<string, float>	&getDbFile();
 
 		void	initDB();
-		void	initInfile();
+		void	parseInfile();
 
 		void	openFile(std::ifstream &File, const string &Filename);
 
