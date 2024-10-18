@@ -20,7 +20,11 @@ PmergeMe::~PmergeMe()
 {
 }
 
-// PmergeMe::PmergeMe(const string &PmergeMe)
-// {
+PmergeMe::PmergeMe(char **In, const size_t Size)
+{
+	for (size_t i = 0; i < Size; i++) {
+		this->_vcr.push_back(atoi(In[i]));
+		std::cout << "Added [" << atoi(In[i]) << "] to vector" << std::endl;
+	}
 	
-// }
+}

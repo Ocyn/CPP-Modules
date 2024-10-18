@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 19:14:55 by ocyn              #+#    #+#             */
-/*   Updated: 2024/10/18 17:54:47 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/10/18 19:11:54 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ class PmergeMe
 		PmergeMe(const PmergeMe &Sample);
 
 	public:
-		//PmergeMe(const string &PmergeMe);
+		PmergeMe(char **In, const size_t Size);
 		~PmergeMe();
 		PmergeMe&		operator=(const PmergeMe& Sample);
 };
