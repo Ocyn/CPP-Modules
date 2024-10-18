@@ -1,36 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/06 09:31:53 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/10/18 11:52:47 by ocyn             ###   ########.fr       */
+/*   Created: 2024/10/08 19:14:55 by ocyn              #+#    #+#             */
+/*   Updated: 2024/10/18 11:50:01 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RPN.hpp"
+#ifndef 	RPN_HPP
+# define 	RPN_HPP
 
+# include <iostream>
+# include <vector>
+# include <string>
+# include <cstdlib>
+# include <stack>
+# include <cstring>
+# include <algorithm>
 
-void	log(string content)
+typedef std::string string;
+
+class RPN
 {
-	std::cout << content << std::endl;
-}
+	private:
+		std::stack<int> _cont;
+		RPN();
+		RPN(const RPN &Sample);
 
-int	errLog(string content)
-{
-	std::cerr << content << std::endl;
-	return (EXIT_FAILURE);
-}
+	public:
+		~RPN();
+		RPN&		operator=(const RPN& Sample);
+};
 
-#define DEFAULT 9
+std::ostream	&operator<<(std::ostream &os, const RPN &Sample);
 
-int main(int ac, char **av)
-{
-	if (ac < 2)
-		return (errLog("./RPN \"your_reverse_polish_notation_here\""));
-	string	rpn = av[1];
-	log("Got Expression: " + rpn);
-	return 0;
-}
+#endif

@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 09:31:53 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/10/16 19:05:55 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/10/18 11:00:29 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int main( int ac, char **av )
 	btc.initDB();
 	std::cout << "Size : " << btc.getDbFile().size() << std::endl;
 	log("Parse Infile");
+	log("\n_____START\n");
 	btc.parseInfile();
 	log("\n_____END");
 	return 0;

@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 19:14:55 by ocyn              #+#    #+#             */
-/*   Updated: 2024/10/16 18:58:55 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/10/18 11:46:14 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 # include <cmath>
 # include <limits>
 # include <algorithm>
-# include <iostream>
 # include <cstdlib>
 # include <cstring>
 # include <fstream>
@@ -36,13 +35,13 @@ class BitcoinExchange
 		std::ifstream			_inFile;
 		std::map<string, float>	_dataBase;
 
+		BitcoinExchange& operator=(const BitcoinExchange &Sample);
 		BitcoinExchange(const BitcoinExchange &Sample);
 		BitcoinExchange();
 		
 	public:
 		~BitcoinExchange();
 		BitcoinExchange(const string &name);
-		BitcoinExchange& operator=(const BitcoinExchange &Sample);
 
 		const string	getInFileName() const;
 		const string	getDbFileName() const;
@@ -54,7 +53,6 @@ class BitcoinExchange
 
 		void	openFile(std::ifstream &File, const string &Filename);
 
-		void	findValue();
 
 };
 
@@ -72,21 +70,10 @@ class	CouldNotOpenFile : public std::exception {
 		const char *what() const throw();
 };
 
-class	NotAPositiveNumber : public std::exception { 
-	public:
-		const char *what() const throw();
-};
-
-class	TooLargeNumber : public std::exception { 
-	public:
-		const char *what() const throw();
-};
-
 class	BadInput : public std::exception { 
 	public:
 		const char *what() const throw();
 };
-
 
 bool	checkDateFormat(const string &Date);
 

@@ -1,6 +1,6 @@
 #________________________MACROS
 
-NAME				= Span
+NAME				= RPN
 
 #____________DEBUGGING
 RESET				= \033[0m
@@ -30,7 +30,7 @@ OBJ_DIR				= $(SRC_DIR).builds/
 
 #____________FILES
 ALL_SRC				= main.cpp \
-					Span.cpp
+					RPN.cpp
 
 ALL_HEADERS			= $(ALL_SRC:.cpp=.hpp)
 
