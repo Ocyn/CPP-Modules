@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 16:07:28 by ocyn              #+#    #+#             */
-/*   Updated: 2024/10/18 11:35:20 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/10/18 16:16:15 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,7 @@ bool	checkDateFormat(const string &Date)
 		return (false);
 	if (Date[4] != '-' || Date[7] != '-')
 		return (false);
-	for (size_t i = 0; i < Date.size(); ++i)
-	{
+	for (size_t i = 0; i < Date.size(); ++i) {
 		if (!isdigit(Date[i]) && i != 4 && i != 7)
 			return (false);
 	}
@@ -66,13 +65,17 @@ bool	checkDateFormat(const string &Date)
 	int	Day = atoi(Date.substr(8, 2).c_str());
 	if (Year < 1 || Year > 9999)
 		return (false);
+	if (Year < 2009 || (Year <= 2009 && Month < 2 && Day < 2) || (Year <= 2009 && Month <= 1 && Day < 2))
+		return (false);
 	if (Month < 1 || Month > 12)
 		return (false);
-	if (Day < 1 || Day > 31)
+	if (Day < 1)
 		return (false);
-	if (Month % 2 == 0 && Day > 30)
+	if ((Month % 2 == 0 && Day > 30) || (Month % 2 != 0 && Day > 31))
 		return (false);
-	if (Year % 4 == 0 && Month == 2 && Day > 28)
+	if (((Year % 4 == 0 && Year % 100 != 0) || Year % 400 == 0) && Month == 2 && Day > 29)
+		return (false);
+	else if (!((Year % 4 == 0 && Year % 100 != 0) || Year % 400 == 0) && Month == 2 && Day > 28)
 		return (false);
 	return (true);
 }
@@ -83,7 +86,7 @@ void	BitcoinExchange::parseInfile()
 	string	Line;
 	while (std::getline(this->_inFile, Line))
 	{
-		if (Line.empty())
+		if (Line.empty() || Line.find("date | value") != Line.npos)
 			continue;
 		string	date = Line.substr(0, Line.find(" | "));
 		float	value = strtof(Line.substr(Line.find(" | ") + 3).c_str(), NULL);
@@ -93,7 +96,7 @@ void	BitcoinExchange::parseInfile()
 		if (it != this->_dataBase.find(date) && it != this->_dataBase.begin())
 			it--;
 		if (it != this->_dataBase.end() && checkDateFormat(date) \
-		&& it->second * value > 0 && value < 1000)
+		&& it->second * value >= 0 && value < 1000)
 			std::cout << date << " => " << it->second << " = " << it->second * value << std::endl;
 		else if (checkDateFormat(date) == false)
 			std::cerr << "Error : " << "Bad input => " << date << std::endl;
@@ -101,6 +104,8 @@ void	BitcoinExchange::parseInfile()
 			std::cerr << "Error : " << "Not a positive Number" << std::endl;
 		else if (value > 1000)
 			std::cerr << "Error : " << "Too large a number " << std::endl;
+		else
+			std::cerr << "Error : " << "Fuuuuuuuu : " << date << " => " << it->second << " = " << it->second * value << std::endl;
 	}
 }
 

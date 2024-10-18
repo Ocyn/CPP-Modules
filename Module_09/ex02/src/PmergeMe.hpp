@@ -1,49 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RPN.hpp                                            :+:      :+:    :+:   */
+/*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 19:14:55 by ocyn              #+#    #+#             */
-/*   Updated: 2024/10/18 16:35:40 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/10/18 17:54:47 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef 	RPN_HPP
-# define 	RPN_HPP
+#ifndef 	PMERGEME_HPP
+# define 	PMERGEME_HPP
 
 # include <iostream>
 # include <vector>
 # include <string>
 # include <cstdlib>
-# include <stack>
+# include <vector>
+# include <list>
 # include <cstring>
 # include <algorithm>
 
 typedef std::string string;
 
-class RPN
+class PmergeMe
 {
 	private:
-		int		_result;
-		bool	_isSuccess;
-		RPN();
-		RPN(const RPN &Sample);
+		std::list<int>		_lst;
+		std::vector<int>	_vcr;
+		PmergeMe();
+		PmergeMe(const PmergeMe &Sample);
 
 	public:
-		RPN(const string &rpn);
-		~RPN();
-		RPN&		operator=(const RPN& Sample);
-		void		getResult();
-		int			processEntry(const string &rpn);
+		//PmergeMe(const string &PmergeMe);
+		~PmergeMe();
+		PmergeMe&		operator=(const PmergeMe& Sample);
 };
 
-void	calculate(std::stack<int> &Stk, const char expression);
-void	log(string content);
-int		errLog(string content);
-
-
-std::ostream	&operator<<(std::ostream &os, const RPN &Sample);
+std::ostream	&operator<<(std::ostream &os, const PmergeMe &Sample);
 
 #endif

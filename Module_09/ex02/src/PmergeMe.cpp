@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   PmergeMe.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/06 09:31:53 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/10/18 16:34:53 by ocyn             ###   ########.fr       */
+/*   Created: 2024/10/09 15:26:35 by ocyn              #+#    #+#             */
+/*   Updated: 2024/10/18 16:38:38 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RPN.hpp"
+#include "PmergeMe.hpp"
 
-
-int main(int ac, char **av)
+PmergeMe::PmergeMe()
 {
-	if (ac < 2)
-		return (errLog("./RPN \"your_reverse_polish_notation_here\""));
-	string	rpn = av[1];
-	RPN	RevPolish(rpn);
-	RevPolish.getResult();
-	return 0;
 }
+
+PmergeMe::~PmergeMe()
+{
+}
+
+// PmergeMe::PmergeMe(const string &PmergeMe)
+// {
+	
+// }

@@ -1,6 +1,6 @@
 #________________________MACROS
 
-NAME				= MutantStack
+NAME				= PmergeMe
 
 #____________DEBUGGING
 RESET				= \033[0m
@@ -29,7 +29,8 @@ LIB_DIR				= lib/
 OBJ_DIR				= $(SRC_DIR).builds/
 
 #____________FILES
-ALL_SRC				= main.cpp
+ALL_SRC				= main.cpp \
+					PmergeMe.cpp
 
 
 ALL_HEADERS			= $(ALL_SRC:.cpp=.hpp)
