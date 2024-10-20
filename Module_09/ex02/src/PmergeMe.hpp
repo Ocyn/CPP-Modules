@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 19:14:55 by ocyn              #+#    #+#             */
-/*   Updated: 2024/10/18 19:11:54 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/10/20 13:00:47 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@
 # include <vector>
 # include <string>
 # include <cstdlib>
+# include <time.h>
+# include <ctime>
 # include <vector>
+# include <limits>
 # include <list>
 # include <cstring>
 # include <algorithm>
@@ -28,7 +31,9 @@ class PmergeMe
 {
 	private:
 		std::list<int>		_lst;
+		double				_lstProcessTime;
 		std::vector<int>	_vcr;
+		double				_vcrProcessTime;
 		PmergeMe();
 		PmergeMe(const PmergeMe &Sample);
 
@@ -36,6 +41,13 @@ class PmergeMe
 		PmergeMe(char **In, const size_t Size);
 		~PmergeMe();
 		PmergeMe&		operator=(const PmergeMe& Sample);
+		void	showVector();
+		void	showList();
+		void	makePair();
+		void	sortList();
+		void	sortVector();
+		void	showTimeToProcessVector();
+		void	showTimeToProcessList();
 };
 
 std::ostream	&operator<<(std::ostream &os, const PmergeMe &Sample);
