@@ -66,37 +66,61 @@ void	PmergeMe::showList()
 void	PmergeMe::showTimeToProcessVector()
 {
 	std::cout << "Time to process a range of " << this->_vcr.size() \
-	<<  " elements with std::vector : " << this->_vcrProcessTime << " us" << std::endl;
+	<<  " elements with std::vector : " << this->_vcrProcessTime << " s" << std::endl;
 }
 
 void	PmergeMe::showTimeToProcessList()
 {
 	std::cout << "Time to process a range of " << this->_lst.size() \
-	<<  " elements with std::list : " << this->_lstProcessTime << " us" << std::endl;
+	<<  " elements with std::list : " << this->_lstProcessTime << " s" << std::endl;
 }
+
+void	fillPairVector(std::vector<std::pair<int, int> > &vecPair, std::vector<int> &vec, int sizeOfVec)
+{
+	for (int i = 0; i < sizeOfVec - (sizeOfVec % 2 != 0); i += 2) {
+		vecPair.push_back(std::make_pair(vec[i], vec[i + 1]));
+		// std::cout << "->[" << vec[i] << "," << vec[i + 1] << "] ";
+	}
+}
+
+// void	mergeSort(std::vector<int> &Vec)
+// {
+	
+// }
 
 void	PmergeMe::sortVector()
 {
+	log("\nSorting Vector...");
 	clock_t	_start = clock();
-	std::cout << "Sorting Vector...\t";
-	for (size_t i = 0; i < 9999; i++)
-	{
-		string test = "salam les khoya";
+	// todo
+
+
+	int	len = this->_vcr.size();
+	std::vector<std::pair<int, int> >	pairVec;
+	int	retarded;
+	(void)retarded;
+
+	if (len % 2 != 0)
+		retarded = *( this->_vcr.end() - 1);
+	std::cout << "Get max element of each pair:\t";
+	fillPairVector(pairVec, this->_vcr, len);
+	std::cout << "Done" << std::endl; 
+	std::cout << "Sort max element list:\t";
+	for (std::vector<std::pair<int, int> >::iterator it = pairVec.begin(); it != pairVec.end(); ++it) {
+		std::cout << "[" << it->first << "|" << it->second << "] ";
 	}
+	std::cout << "Done" << std::endl;
 	clock_t	_end = clock();
-	this->_vcrProcessTime = static_cast<double>((_end - _start)) / CLOCKS_PER_SEC * 1000000;
-	std::cout << "Done !" << std::endl;
+	this->_vcrProcessTime = static_cast<double>((_end - _start)) / CLOCKS_PER_SEC;
+	log("Vector Sorted");
 }
 
 void	PmergeMe::sortList()
 {
-	clock_t	_start = clock();
 	std::cout << "Sorting List...\t";
-	for (size_t i = 0; i < 9999; i++)
-	{
-		string test = "salam les khoya";
-	}
+	clock_t	_start = clock();
+	// todo
 	clock_t	_end = clock();
-	this->_lstProcessTime = static_cast<double>((_end - _start)) / CLOCKS_PER_SEC * 1000000;
+	this->_lstProcessTime = static_cast<double>((_end - _start)) / CLOCKS_PER_SEC;
 	std::cout << "Done !" << std::endl;
 }

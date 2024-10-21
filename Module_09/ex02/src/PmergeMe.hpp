@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 19:14:55 by ocyn              #+#    #+#             */
-/*   Updated: 2024/10/20 13:00:47 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/10/21 13:52:36 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,10 @@ class PmergeMe
 		void	showTimeToProcessList();
 };
 
+
 std::ostream	&operator<<(std::ostream &os, const PmergeMe &Sample);
+
+void	log(const string content);
+int		errLog(const string content);
 
 #endif
