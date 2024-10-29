@@ -20,45 +20,32 @@ PmergeMe::~PmergeMe()
 {
 }
 
-bool	checkNumber(const int &n)
-{
-	if (!std::isdigit(n))
-		return (false);
-	if (n < 0 || std::numeric_limits<int>::max() < n)
-		return (false);
-	return (true);
-}
-
 PmergeMe::PmergeMe(char **In, const size_t Size)
 {
-	std::cout << "Filling Vector\t";
 	for (size_t i = 0; i < Size; i++) {
 		this->_vcr.push_back(atoi(In[i]));
-		// std::cout << "Added [" << atoi(In[i]) << "] to vector" << std::endl;
 	}
-	std::cout << "Done" << std::endl;
-	std::cout << "Filling List\t";
 	for (size_t i = 0; i < Size; i++) {
-		this->_lst.push_back(atoi(In[i]));
-		// std::cout << "Added [" << atoi(In[i]) << "] to vector" << std::endl;
+		this->_deq.push_back(atoi(In[i]));
 	}
-	std::cout << "Done" << std::endl;
 }
 
 void	PmergeMe::showVector()
 {
-	std::cout << "Vector, size: " << this->_vcr.size() << std::endl;
 	for (std::vector<int>::iterator	it = this->_vcr.begin(); it != this->_vcr.end(); ++it) {
-		std::cout << "[" << *it << "] ";
+		std::cout << *it;
+		if (it != this->_vcr.end() - 1)
+			std::cout << ", ";
 	}
 	std::cout << std::endl;
 }
 
-void	PmergeMe::showList()
+void	PmergeMe::showDeque()
 {
-	std::cout << "List, size: " << this->_lst.size() << std::endl;
-	for (std::list<int>::iterator	it = this->_lst.begin(); it != this->_lst.end(); ++it) {
-		std::cout << "[" << *it << "] ";
+	for (std::deque<int>::iterator	it = this->_deq.begin(); it != this->_deq.end(); ++it) {
+		std::cout << *it;
+		if (it != this->_deq.end() - 1)
+			std::cout << ", ";
 	}
 	std::cout << std::endl;
 }
@@ -69,58 +56,116 @@ void	PmergeMe::showTimeToProcessVector()
 	<<  " elements with std::vector : " << this->_vcrProcessTime << " s" << std::endl;
 }
 
-void	PmergeMe::showTimeToProcessList()
+void	PmergeMe::showTimeToProcessDeque()
 {
-	std::cout << "Time to process a range of " << this->_lst.size() \
-	<<  " elements with std::list : " << this->_lstProcessTime << " s" << std::endl;
+	std::cout << "Time to process a range of " << this->_deq.size() \
+	<<  " elements with std::deque : " << this->_deqProcessTime << " s" << std::endl;
 }
 
-void	fillPairVector(std::vector<std::pair<int, int> > &vecPair, std::vector<int> &vec, int sizeOfVec)
+void	fillPairVector(std::vector<std::pair<int, int> > &vecPair, const std::vector<int> &vec, int sizeOfVec)
 {
 	for (int i = 0; i < sizeOfVec - (sizeOfVec % 2 != 0); i += 2) {
-		vecPair.push_back(std::make_pair(vec[i], vec[i + 1]));
-		// std::cout << "->[" << vec[i] << "," << vec[i + 1] << "] ";
+		if (vec[i] > vec[i + 1])
+			vecPair.push_back(std::make_pair(vec[i], vec[i + 1]));
+		else
+			vecPair.push_back(std::make_pair(vec[i + 1], vec[i]));
 	}
 }
 
-// void	mergeSort(std::vector<int> &Vec)
-// {
-	
-// }
+std::vector<int>::iterator	binarySearchVector(std::vector<int> &Vec, int Target)
+{
+	return (std::lower_bound(Vec.begin(), Vec.end(), Target));
+}
+
+std::vector<int>	mergeSortVector(std::vector<int> Vec)
+{
+	std::vector<std::pair<int, int> >	pairVec;
+	std::vector<int>					maxVec;
+	std::vector<int>					minVec;
+
+	if (Vec.size() < 2)
+		return (Vec);
+	int	last = -1;
+	if (Vec.size() % 2 != 0) {
+		last = *(Vec.end() - 1);
+		Vec.erase(Vec.end() - 1);
+	}
+	fillPairVector(pairVec, Vec, Vec.size());
+	for (std::vector<std::pair<int, int> >::iterator it = pairVec.begin(); \
+	it != pairVec.end(); ++it) {
+		maxVec.push_back(it->first);
+		minVec.push_back(it->second);
+	}
+	if (last > -1)
+		minVec.push_back(last);
+	if (maxVec.size() > 2)
+		maxVec = mergeSortVector(maxVec);
+	for (std::vector<int>::iterator it = minVec.begin(); it != minVec.end(); ++it) {
+		maxVec.insert(binarySearchVector(maxVec, *it), *it);
+	}
+	return (maxVec);
+}
+
 
 void	PmergeMe::sortVector()
 {
-	log("\nSorting Vector...");
 	clock_t	_start = clock();
-	// todo
-
-
-	int	len = this->_vcr.size();
-	std::vector<std::pair<int, int> >	pairVec;
-	int	retarded;
-	(void)retarded;
-
-	if (len % 2 != 0)
-		retarded = *( this->_vcr.end() - 1);
-	std::cout << "Get max element of each pair:\t";
-	fillPairVector(pairVec, this->_vcr, len);
-	std::cout << "Done" << std::endl; 
-	std::cout << "Sort max element list:\t";
-	for (std::vector<std::pair<int, int> >::iterator it = pairVec.begin(); it != pairVec.end(); ++it) {
-		std::cout << "[" << it->first << "|" << it->second << "] ";
-	}
-	std::cout << "Done" << std::endl;
+	this->_vcr = mergeSortVector(this->_vcr);
 	clock_t	_end = clock();
 	this->_vcrProcessTime = static_cast<double>((_end - _start)) / CLOCKS_PER_SEC;
-	log("Vector Sorted");
 }
 
-void	PmergeMe::sortList()
+
+std::deque<int>::iterator	binarySearchDeque(std::deque<int> &List, int Target)
 {
-	std::cout << "Sorting List...\t";
+	return (std::lower_bound(List.begin(), List.end(), Target));
+}
+
+void	fillPairDeque(std::deque<std::pair<int, int> > &dequePair, std::deque<int> &deque)
+{
+	for (std::deque<int>::iterator it = deque.begin(); it != deque.end(); it += 2) {
+		if (*it > *(it + 1))
+			dequePair.push_back(std::make_pair(*it, *(it + 1)));
+		else
+			dequePair.push_back(std::make_pair(*(it + 1), *it));
+	}
+}
+
+std::deque<int>	mergeSortDeque(std::deque<int> Deque)
+{
+	std::deque<std::pair<int, int> >	pairDeque;
+	std::deque<int>					maxDeque;
+	std::deque<int>					minDeque;
+
+	if (Deque.size() < 2)
+		return (Deque);
+	int	last = -1;
+	if (Deque.size() % 2 != 0) {
+		last = *(Deque.end() - 1);
+		Deque.erase(Deque.end() - 1);
+	}
+	fillPairDeque(pairDeque, Deque);
+	for (std::deque<std::pair<int, int> >::iterator it = pairDeque.begin(); \
+	it != pairDeque.end(); ++it) {
+		maxDeque.push_back(it->first);
+		minDeque.push_back(it->second);
+	}
+	if (last > -1)
+		minDeque.push_back(last);
+	if (maxDeque.size() > 2)
+		maxDeque = mergeSortDeque(maxDeque);
+	for (std::deque<int>::iterator it = minDeque.begin(); it != minDeque.end(); ++it) {
+		maxDeque.insert(binarySearchDeque(maxDeque, *it), *it);
+	}
+	return (maxDeque);
+}
+
+void	PmergeMe::sortDeque()
+{
 	clock_t	_start = clock();
-	// todo
+
+	
+	this->_deq = mergeSortDeque(this->_deq);
 	clock_t	_end = clock();
-	this->_lstProcessTime = static_cast<double>((_end - _start)) / CLOCKS_PER_SEC;
-	std::cout << "Done !" << std::endl;
+	this->_deqProcessTime = static_cast<double>((_end - _start)) / CLOCKS_PER_SEC;
 }

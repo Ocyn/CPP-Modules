@@ -6,13 +6,13 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 09:31:53 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/10/21 14:01:35 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/10/29 16:50:26 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
-#define DEFAULT 30
+#define DEFAULT 30 
 
 
 void	log(const string content)
@@ -26,21 +26,6 @@ int	errLog(const string content)
 	return (EXIT_FAILURE);
 }
 
-void	showNumbers(const string &title, int Size, char **nu)
-{
-	std::cout << title;
-	for (int i = 1; i < Size; i++) {
-		std::cout << nu[i];
-		if (i + 1 != Size)
-			std::cout << ", ";
-		if (i < Size && i == DEFAULT) {
-			std::cout << "[...]";
-			break ;
-		}
-	}
-	std::cout << std::endl;
-}
-
 
 int main(int ac, char **av)
 {
@@ -49,10 +34,18 @@ int main(int ac, char **av)
 	(void)av; 
 	string	In = av[1];
 	PmergeMe	Jhon(av + 1, ac - 1);
-	showNumbers("Before: ", ac, av);
-	// Jhon.showVector();
+
+	std::cout << "Before : ";
+	Jhon.showVector();
+
 	Jhon.sortVector();
+	std::cout << "After : ";
+	Jhon.showVector();
 	Jhon.showTimeToProcessVector();
-	// Jhon.showList();
+
+	Jhon.sortDeque();
+	// std::cout << "After : ";
+	// Jhon.showDeque();
+	Jhon.showTimeToProcessDeque();
 	log("\n_______END"); 
 }

@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 19:14:55 by ocyn              #+#    #+#             */
-/*   Updated: 2024/10/18 16:35:40 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/10/29 16:18:22 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <string>
 # include <cstdlib>
 # include <stack>
+# include <list>
 # include <cstring>
 # include <algorithm>
 
@@ -39,7 +40,7 @@ class RPN
 		int			processEntry(const string &rpn);
 };
 
-void	calculate(std::stack<int> &Stk, const char expression);
+void	calculate(std::stack<int, std::list<int> > &Stk, const char expression);
 void	log(string content);
 int		errLog(string content);
 

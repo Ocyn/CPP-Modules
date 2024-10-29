@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 15:26:35 by ocyn              #+#    #+#             */
-/*   Updated: 2024/10/18 17:41:57 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/10/29 16:17:06 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ RPN::RPN(const string &rpn): _result(0), _isSuccess(false)
 
 int	RPN::processEntry(const string &rpn)
 {
-	std::stack<int> Stk;
+	std::stack<int, std::list<int> > Stk;
 	for (size_t i = 0; i < rpn.size(); i++)
 	{
 		if (!std::isdigit(rpn[i]) && rpn[i] != ' ' \
@@ -45,7 +45,7 @@ int	RPN::processEntry(const string &rpn)
 	return (EXIT_SUCCESS);
 }
 
-void	calculate(std::stack<int> &Stk, const char expression)
+void	calculate(std::stack<int, std::list<int> > &Stk, const char expression)
 {
 	int	result =  Stk.top();
 	Stk.pop();
