@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 19:14:55 by ocyn              #+#    #+#             */
-/*   Updated: 2024/10/29 16:41:56 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/10/29 18:09:47 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ class PmergeMe
 		double				_deqProcessTime;
 		std::vector<int>	_vcr;
 		double				_vcrProcessTime;
+		bool				_isValid;
 		PmergeMe();
 		PmergeMe(const PmergeMe &Sample);
 
@@ -41,11 +42,14 @@ class PmergeMe
 		PmergeMe(char **In, const size_t Size);
 		~PmergeMe();
 		PmergeMe&		operator=(const PmergeMe& Sample);
+		std::vector<int>	&getVector();
+		std::deque<int>		&getDeque();
 		void	showVector();
 		void	showDeque();
 		void	makePair();
 		void	sortDeque();
 		void	sortVector();
+		bool	isInputValid();
 		void	showTimeToProcessVector();
 		void	showTimeToProcessDeque();
 };

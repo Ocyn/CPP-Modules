@@ -6,7 +6,7 @@
 /*   By: ocyn <ocyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 09:31:53 by jcuzin            #+#    #+#             */
-/*   Updated: 2024/10/29 16:50:26 by ocyn             ###   ########.fr       */
+/*   Updated: 2024/10/29 18:11:08 by ocyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ int	errLog(const string content)
 int main(int ac, char **av)
 {
 	if (ac < 2)
-		return(errLog("./PmergeMe <numbers to sort>"));
-	(void)av; 
+		return(errLog("./PmergeMe <numbers to sort>"));	
 	string	In = av[1];
 	PmergeMe	Jhon(av + 1, ac - 1);
-
+	if (Jhon.isInputValid() == false)
+		return (errLog("Error"));
 	std::cout << "Before : ";
 	Jhon.showVector();
 

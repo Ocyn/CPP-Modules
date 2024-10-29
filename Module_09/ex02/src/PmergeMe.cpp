@@ -22,13 +22,43 @@ PmergeMe::~PmergeMe()
 
 PmergeMe::PmergeMe(char **In, const size_t Size)
 {
+	this->_isValid = true;
 	for (size_t i = 0; i < Size; i++) {
-		this->_vcr.push_back(atoi(In[i]));
+		char *end;
+		this->_vcr.push_back(static_cast<int>(std::strtol(In[i], &end, 10)));
+		string	check = end;
+		if (end && check.find_first_not_of("\r\n\t\v\f ") != check.npos)
+			this->_isValid = false;
+		if (static_cast<int>(std::strtol(In[i], &end, 10)) < 0)
+			this->_isValid = false;
 	}
 	for (size_t i = 0; i < Size; i++) {
-		this->_deq.push_back(atoi(In[i]));
+		char *end;
+		this->_deq.push_back(static_cast<int>(std::strtol(In[i], &end, 10)));
+		string	check = end;
+		if (end && check.find_first_not_of("\r\n\t\v\f ") != check.npos)
+			this->_isValid = false;
+		if (static_cast<int>(std::strtol(In[i], &end, 10)) < 0)
+			this->_isValid = false;
 	}
 }
+
+std::vector<int>&	PmergeMe::getVector()
+{
+	return (this->_vcr);
+}
+
+
+std::deque<int>&		PmergeMe::getDeque()
+{
+	return (this->_deq);
+}
+
+bool	PmergeMe::isInputValid()
+{
+	return (this->_isValid);
+}
+
 
 void	PmergeMe::showVector()
 {
@@ -164,7 +194,7 @@ void	PmergeMe::sortDeque()
 {
 	clock_t	_start = clock();
 
-	
+
 	this->_deq = mergeSortDeque(this->_deq);
 	clock_t	_end = clock();
 	this->_deqProcessTime = static_cast<double>((_end - _start)) / CLOCKS_PER_SEC;
